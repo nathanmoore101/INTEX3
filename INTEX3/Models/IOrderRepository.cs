@@ -8,6 +8,9 @@ namespace INTEX3.Models
 
         IEnumerable<Order> GetOrdersSortedByDateDescending();
 
+        Order GetOrderById(int orderId);
+        void UpdateOrder(Order order);
+
         //IQueryable<Order> Orders { get; }
         //void SaveOrder(Order order);
     }

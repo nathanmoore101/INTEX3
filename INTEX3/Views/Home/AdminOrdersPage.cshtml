@@ -13,9 +13,9 @@
 
 @* @model List<Order> //UPDATE WITH CORRECT MODEL *@
 <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">ORDERS</a>
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
     <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
-    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">USERS</a>
+    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
 </nav>
 
 
@@ -37,8 +37,7 @@
                     <td>Bank</td>
                     <td>Type of Card</td>
                     <td>Fraud</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td>Review</td>
 
                 </tr>
 
@@ -46,26 +45,22 @@
 
             @foreach (var x in Model)
             {
-                <tbody>
-                    <tr>
-                        <td>@x.TransactionId</td>
-                        <td>@x.CustomerId</td>
-                        <td>@x.Date</td>
-                        <td>@x.DayOfWeek</td>
-                        <td>@x.Time</td>
-                        <td>@x.EntryMode</td>
-                        <td>@x.Amount</td>
-                        <td>@x.TypeOfTransaction</td>
-                        <td>@x.CountryOfTransaction</td>
-                        <td>@x.ShippingAddress</td>
-                        <td>@x.Bank</td>
-                        <td>@x.TypeOfCard</td>
-                        <td>@x.Fraud</td>
-                        <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TransactionId">Edit</a></td>
-                        <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TransactionId">Delete</a></td>
-                    </tr>
-
-                </tbody>
+                <tr style="@(x.Fraud == 1 ? "background-color: red;" : "")">
+                    <td>@x.TransactionId</td>
+                    <td>@x.CustomerId</td>
+                    <td>@x.Date</td>
+                    <td>@x.DayOfWeek</td>
+                    <td>@x.Time</td>
+                    <td>@x.EntryMode</td>
+                    <td>@x.Amount</td>
+                    <td>@x.TypeOfTransaction</td>
+                    <td>@x.CountryOfTransaction</td>
+                    <td>@x.ShippingAddress</td>
+                    <td>@x.Bank</td>
+                    <td>@x.TypeOfCard</td>
+                    <td>@x.Fraud</td>
+                    <td><a class="btn btn-info" asp-controller="Home" asp-action="ReviewOrderPage" asp-route-id="@x.TransactionId">Review Order</a></td>
+                </tr>
             }
         </table>
     </div>

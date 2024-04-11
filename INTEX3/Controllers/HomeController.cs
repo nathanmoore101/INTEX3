@@ -48,15 +48,38 @@ namespace INTEX3.Controllers
             return View(orders);
         }
 
+        // GET: Review Order
+        public IActionResult ReviewOrderPage(int id)
+        {
+            var order = _orderRepository.GetOrderById(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View("ReviewOrderPage", order);
+        }
+
+        [HttpPost]
+        public IActionResult EditOrder(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                _orderRepository.UpdateOrder(order);
+                return RedirectToAction("AdminOrdersPage");
+            }
+
+            return View("ReviewOrderPage", order);
+        }
+    
 
 
 
 
 
-
-        //ADMIN PRODUCTS PAGE + CRUD
-        //[Authorize]
-        public IActionResult AdminProductsPage()
+    //ADMIN PRODUCTS PAGE + CRUD
+    //[Authorize]
+    public IActionResult AdminProductsPage()
         {
             // Get all products ordered by ProductId in ascending order
             var products = _productRepository.GetAllProducts().OrderBy(p => p.ProductId).ToList();
