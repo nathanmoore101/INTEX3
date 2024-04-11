@@ -39,7 +39,7 @@ header.bg-light {
 
 .logo-img {
     aspect-ratio: 1.41;
-    max-width: 100%;
+    max-width: 30px;
     object-fit: auto;
     object-position: center;
     width: 111px;
@@ -73,7 +73,7 @@ header.bg-light {
 .nav-links {
     align-self: stretch;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: space-between;
     margin: auto 0;
 }

@@ -1,0 +1,105 @@
+﻿.carousel {
+    z-index: 1000; /* Lower z-index for carousel */
+    padding-top: 67px;
+}
+
+.carousel-item img {
+    height: 500px; /* Adjust based on your preference */
+    object-fit: cover; /* This makes the image cover the area without losing aspect ratio */
+    width: 100%;
+}
+
+.container, .row {
+    margin: 0 !important; /* Override margin */
+    padding: 0 !important; /* Override padding */
+}
+
+
+.image-row {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: wrap; /* Allows items to wrap to the next line as needed */
+    gap: 30px; /* Adjust the space between items */
+}
+
+    .image-row a {
+        padding-top: 70px;
+        flex: 1; /* Allows links to grow and shrink */
+        min-width: 8%; /* Minimum width of each link/image */
+        max-width: 11%; /* Maximum width of each link/image to control size */
+    }
+
+        .image-row a:nth-child(4) {
+            flex: 1; /* Allows links to grow and shrink */
+            min-width: 10%; /* Minimum width of each link/image */
+            max-width: 14%; /* Maximum width of each link/image to control size */
+        }
+
+    .image-row img {
+        width: 100%; /* Makes the image fill the container */
+        height: auto; /* Maintains aspect ratio */
+        display: block;
+    }
+
+
+    h2 {
+        margin: 0px 0px 0px 50px;
+        padding-top: 100px;
+        padding-bottom: 10px;
+    }
+
+.product-grid {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+@media (max-width: 991px) {
+    .product-grid {
+        flex-wrap: wrap;
+    }
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 30px;
+}
+
+.product-image {
+    aspect-ratio: 1.04;
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(91, 87, 94, 1);
+}
+
+.product-title {
+    margin-top: 15px;
+    color: #000;
+    font: 600 20px/129% "Open Sans", sans-serif;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+}
+
+.add-to-cart-btn {
+    margin-top: 5px;
+    padding: 19px 60px;
+    color: #fff;
+    font: 400 16px "Open Sans", sans-serif;
+    text-align: center;
+    background-color: #069d9f;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .add-to-cart-btn {
+        padding: 19px 20px;
+    }
+}
+
+

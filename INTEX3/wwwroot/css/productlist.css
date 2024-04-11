@@ -1,0 +1,168 @@
+﻿body {
+}
+
+.productlistheader {
+    padding-top: 150px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 48px;
+}
+
+.dropdown-toggle {
+    border-radius: 50px;
+    color: #069D9F;
+    background-color: #FFF;
+    border: 2px solid #069D9F;
+    padding: 10px 10px 10px 10px;
+}
+
+
+    .dropdown-toggle:hover {
+        color: #FFF;
+        background-color: #069D9F;
+    }
+
+.buttonfilter {
+    border-radius: 50px; /* Makes the button circular */
+    color: #069D9F;
+    background-color: #FFF;
+    border: 2px solid #069D9F;
+    padding: 10px 20px 10px 20px; /* Adjust padding as needed */
+}
+
+    .buttonfilter:hover {
+        color: #FFF;
+        background-color: #069D9F;
+        cursor: pointer; /* Change cursor on hover */
+    }
+
+.sidebar {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1503;
+    top: 0;
+    right: 0; /* Position the sidebar on the right */
+    background-color: #FFF;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+#main {
+    transition: margin-right .5s; /* Adjust the transition for margin-right */
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+        .sidebar a {
+            font-size: 18px;
+        }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 1502; /* Ensure the overlay is above other content */
+    display: none; /* Initially hide the overlay */
+}
+
+.dropdown {
+    position: relative;
+    display: table;
+    padding: 0px 10px 0px 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: relative;
+    border-color: #FFF;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-btn {
+    color: black;
+    background-color: #FFF;
+    border: #FFF;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+    .dropdown-menu a {
+        color: lightslategray;
+        padding: 0px 40px;
+        text-decoration: none;
+        display: inline-grid;
+        font-size: 18px;
+        border-color: #FFF;
+        text-align: right;
+
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+            border-color: #FFF;
+            color: #069D9F;
+        }
+
+.custom-pagination-btn {
+    color: #069D9F;
+    background-color: transparent;
+    border: 1px solid #069D9F;
+    margin: 0 2px; /* Adjust margin for spacing between buttons */
+    min-width: 30px; /* Set a minimum width for the buttons */
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto; /* Adjust margin for top and bottom spacing */
+}
+
+.custom-pagination-btn.active,
+.custom-pagination-btn:hover {
+    background-color: #069D9F;
+    color: #fff;
+}
