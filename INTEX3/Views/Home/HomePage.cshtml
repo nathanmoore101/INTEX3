@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Carousel Example</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Qt9Hug5N8Zq+pAiD1//I5ZPuXGR7t7dzWdSf2XkC3V7dMlvlJWvy8UcYG1TK3jWk" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/home.css">
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Carousel Items -->
+                <div class="carousel-item active">
+                    
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO-Zv6W_eU-X4kf4XOX1TaX4O_ah4FpHbgAZFTBV6pp3Cz_Zocm0qKwmqPqavWDbTOtCfl8u9LjJgHAY2onJe5ZrYMCPQWzOSOg2d8s_Wja57EQ0XXBZNL_kLUh8tv4W8SKn0uMT_OW0m9ow6lQg1f5tWZO1xBFVHwBnSNaZ3Rh-dfMeblblVUbhuYeD6CUlAsyGNdsE4WakU1GQCDz8nXJG52BUo_Ag53_vTi_UzLRrkUwuyzdoKel4zgJ1CCpKFQnuhf_nVO_TqjUx9d7Wwmm6CyDwaVxnvblcmHZFdhlAEpNh3yvZCwtsa48SHmM6JY4NSt9naaXrXAMwg9cP203Sy-4L9Xtf55NUg4NSYErcK-gug9QPCaJ3bl0mbMS6Dcq54NWSa0Q14fC4xWlN2vgiLRdTzCWmM85btWepZAd4Pqmwk6l1AavjL29_JW-xL6ZqnkZcWj-bdQs17mLXoZg-4TmuuBBdG8hLDuSnNratJUkjfu2GVLT0TFnQsbnLDtlD6nRE3m4wVbdc6QoQ4-KSlIn_jCU3K-SheT6ociuPMHlw1QWEUFerDfqWRtGdIwVYI3F-ILbiuIw2iV9xDtlBa3ZyMBbTy6jS51ZU3AVBtfPs4YJ7dvustx2M_AZjbuC9DWhBf5N-O-GTEaJhoyC7xZhEK9bAYAW0aww5-FdniaepmV3x4SANJH5qob8dWZO3nNOFHCnBEc6wXRBAIR7hYbGQwaKlXI7jGB2YocWU1BHZjlv2tA1EgQN-bK_TOZ5_rgTgbiEazjkb2g4tGiEZP6C9Mg2gewI0uKGeaAgeMRk07AypSWp7sMcUMigXn28jF4nbPK3oZCT1e7b2iFMCHSZYf98R2JLhsiUspKTDEBywjwBmH9U5btMmpXy5qay8KuwRqzHuKplgei_RqVWTV_lc6CM7YQwOqu8NbhLDui1JxsDMR4=w1920-h714-s-no-gm?authuser=0" class="d-block w-100" alt="First Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                
+                </div>
+                <div class="carousel-item">
+                    <!-- Image URL for the second item -->
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO-Zv6W_eU-X4kf4XOX1TaX4O_ah4FpHbgAZFTBV6pp3Cz_Zocm0qKwmqPqavWDbTOtCfl8u9LjJgHAY2onJe5ZrYMCPQWzOSOg2d8s_Wja57EQ0XXBZNL_kLUh8tv4W8SKn0uMT_OW0m9ow6lQg1f5tWZO1xBFVHwBnSNaZ3Rh-dfMeblblVUbhuYeD6CUlAsyGNdsE4WakU1GQCDz8nXJG52BUo_Ag53_vTi_UzLRrkUwuyzdoKel4zgJ1CCpKFQnuhf_nVO_TqjUx9d7Wwmm6CyDwaVxnvblcmHZFdhlAEpNh3yvZCwtsa48SHmM6JY4NSt9naaXrXAMwg9cP203Sy-4L9Xtf55NUg4NSYErcK-gug9QPCaJ3bl0mbMS6Dcq54NWSa0Q14fC4xWlN2vgiLRdTzCWmM85btWepZAd4Pqmwk6l1AavjL29_JW-xL6ZqnkZcWj-bdQs17mLXoZg-4TmuuBBdG8hLDuSnNratJUkjfu2GVLT0TFnQsbnLDtlD6nRE3m4wVbdc6QoQ4-KSlIn_jCU3K-SheT6ociuPMHlw1QWEUFerDfqWRtGdIwVYI3F-ILbiuIw2iV9xDtlBa3ZyMBbTy6jS51ZU3AVBtfPs4YJ7dvustx2M_AZjbuC9DWhBf5N-O-GTEaJhoyC7xZhEK9bAYAW0aww5-FdniaepmV3x4SANJH5qob8dWZO3nNOFHCnBEc6wXRBAIR7hYbGQwaKlXI7jGB2YocWU1BHZjlv2tA1EgQN-bK_TOZ5_rgTgbiEazjkb2g4tGiEZP6C9Mg2gewI0uKGeaAgeMRk07AypSWp7sMcUMigXn28jF4nbPK3oZCT1e7b2iFMCHSZYf98R2JLhsiUspKTDEBywjwBmH9U5btMmpXy5qay8KuwRqzHuKplgei_RqVWTV_lc6CM7YQwOqu8NbhLDui1JxsDMR4=w1920-h714-s-no-gm?authuser=0" class="d-block w-100" alt="Second Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                
+                </div>
+                <div class="carousel-item">
+                    <!-- Image URL for the third item -->
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO-Zv6W_eU-X4kf4XOX1TaX4O_ah4FpHbgAZFTBV6pp3Cz_Zocm0qKwmqPqavWDbTOtCfl8u9LjJgHAY2onJe5ZrYMCPQWzOSOg2d8s_Wja57EQ0XXBZNL_kLUh8tv4W8SKn0uMT_OW0m9ow6lQg1f5tWZO1xBFVHwBnSNaZ3Rh-dfMeblblVUbhuYeD6CUlAsyGNdsE4WakU1GQCDz8nXJG52BUo_Ag53_vTi_UzLRrkUwuyzdoKel4zgJ1CCpKFQnuhf_nVO_TqjUx9d7Wwmm6CyDwaVxnvblcmHZFdhlAEpNh3yvZCwtsa48SHmM6JY4NSt9naaXrXAMwg9cP203Sy-4L9Xtf55NUg4NSYErcK-gug9QPCaJ3bl0mbMS6Dcq54NWSa0Q14fC4xWlN2vgiLRdTzCWmM85btWepZAd4Pqmwk6l1AavjL29_JW-xL6ZqnkZcWj-bdQs17mLXoZg-4TmuuBBdG8hLDuSnNratJUkjfu2GVLT0TFnQsbnLDtlD6nRE3m4wVbdc6QoQ4-KSlIn_jCU3K-SheT6ociuPMHlw1QWEUFerDfqWRtGdIwVYI3F-ILbiuIw2iV9xDtlBa3ZyMBbTy6jS51ZU3AVBtfPs4YJ7dvustx2M_AZjbuC9DWhBf5N-O-GTEaJhoyC7xZhEK9bAYAW0aww5-FdniaepmV3x4SANJH5qob8dWZO3nNOFHCnBEc6wXRBAIR7hYbGQwaKlXI7jGB2YocWU1BHZjlv2tA1EgQN-bK_TOZ5_rgTgbiEazjkb2g4tGiEZP6C9Mg2gewI0uKGeaAgeMRk07AypSWp7sMcUMigXn28jF4nbPK3oZCT1e7b2iFMCHSZYf98R2JLhsiUspKTDEBywjwBmH9U5btMmpXy5qay8KuwRqzHuKplgei_RqVWTV_lc6CM7YQwOqu8NbhLDui1JxsDMR4=w1920-h714-s-no-gm?authuser=0" class="d-block w-100" alt="Third Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjyIOi+Y5NLY6tvXNx5I4F6zH9U9g0z3N2u5XP0m3IIqejAsHHfs3T" crossorigin="anonymous"></script>
+    <script>
+        var myCarousel = document.querySelector('#carouselExampleIndicators');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000,
+            wrap: true
+        });
+    </script>
+
+
+    <div class="image-row">
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage"><img src="https://lh3.googleusercontent.com/pw/AP1GczOQAxsMVxry7mdQkkfEtGv6VB-1blb4nd4RhvMtVYXI2S9nSS8GuInT-OX3TQEHTOBt_owDgLLwjog12aFT9aJYp8yiqG95QBwQck8HAYeKa3XpbJTD5m0guS8zqXVkqDs7bJZpeSqHj0yP0_0yrANnWJAbbzeNZpzYTH1psMF7zLKONIZtJ_EseVA3gV2Sr2aIIWRD49BcrZMlvWHePI_YTk0Cy6wGq-MCRsHORp4GUtVNIxRLlOTWPdi5zjNprVcfk0SC6JfsMPDpm3HmRoqVoIevicSsqQnHZby1aAnb15UfePhS65fs1CHFWV8AX1ribtEYfEFaqZjm7pb6GFCx-IAlP0-0CUQpS-kXEeKL9k9L8V2UzxHgDiv8vHWlvphKOoFyN94tIOgiw7X7JSin1ALDnZxKth0wTK8WzetXTNpsrXSu3d4AAGYWxu4IySATOEDkH0ps_VtZd8guMOo4vO1Dv2EceMtGXGaccbijPjACA8pp8_BtYsAiEysBS812LwArkHAnF2OhGHNFBgc7xG_YOXJq5O6LrvEwNHg8D6lK74-ERUrfbOm5VsEDvfv6IE_Dv6j5lpcwrZVkPKmIkq-B4ChfgzCtYLjUoVpO6lXB-2UgLkZ2EIbxWpPBdK2mjAuiH7uqv9d9tXtf3SZ3CQX3oD-ow0V8JetLo-MYdq5UUVMNaNhRFp_b88sePl6mzaOgoPqNm3jQoKR3eiZKhdg-sWrxyrT174z0rlhpjoM61OSRdgXVlA7_TLjCE_-eMUETCFM25GBGc3XhaEuh28DttBXhBt8x1LSymXiqG7yu9xzEEf_yubvRZovX7zY_k_yRgp56o2_LPqMx-_IXHrX9xqCDeFEqpuV78f9oaSq4GFbcBpXzoHO0BW0vZBpDf7p1qcYSJJd-PgPJ0DzVKQCfFkVBY7Lr6irDMIXz-FRd1TIl5eU=w221-h230-s-no-gm?authuser=0" alt="All Products"></a>
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Star Wars"><img src="https://lh3.googleusercontent.com/pw/AP1GczOFPCprDS2w7cBzjv_pzh1UoeyHiuAGFviQzNBpoeWOHiK17IaBJBOQ6IhSoCxT70eFH4N_7fNuRG6s_ZN5tm4a3fAqlWj1ZRCXzGyVqjmM1SC_vA3lQznz6zbMgk1yJ_wp-e5gmG1YEZBmyFhA-CsF9ucTouquv-0RQwD_dxn6tqEF2RFphJBEE4Gk7A-TUScSBRHsnhVfXT4tseYAkq_xWQS1BKmZJfS6R96Mj-FKquVGsJZQB9zjXHT6PHiQbiat2SToZTApNuHThkcbEBNaMkuJ75-jI9ymbXyRfXT6bQ-hipDK1IuE6oQ0WvEkHDbx8hPBoayIGpVizThYXFaLRxl_JVVwfo8FmbFX2ZimHRRddtk5lPqcvXfOdFe00a1B7HiHifCHHh2lRjoJPhJQhdAU-B--IyVeZSAjVDq-tDygk2VQE9_Fi34l7NAHNtN1MrOBoQdVcRFzHC9A41_U1fjCQUV0urTOxuGwHdN5p1cgrTaKA8lockmahMBtz89JEexGGxphFwono1-JAMyV2nlCf3y4Shx89YxhTwPAbPJ0KDd3f6wHfdLB75wXFJGZJa_zhL-ZwiqPIyufCXNWbs6XhgDAD4fd6eGPiQbXqBwdK-fgiMCN5e-YV0tsC_IatOAOCp1lqCuDkqbO4TUOJPy78GTzOcXXjwutnxkWbHtz7GVAP_RgLmy4qc9ObofgKbdNdfAgyPa_1ZS6lq5vCM7ao7YK-7BzteUy1JkmuXCfNP1eO6IhMUJs0BYYmLOU06i1uMbJrn9WOoIT8GRD6tBWaOB4z3hTbKg9bZzpS_HOTVrlApyIXT6mivdh8ekQNKW-uvuocEV-eQ4ZAr9ct89gptj6Xs4eil3BfFsHYwt4dztVLSJAoCiTIDLs6iDAu9oCHS2c3gSBNyCy_IgP3QqPkofuP7JBYAE8ygldu5cgZvY5yH0=w221-h230-s-no-gm?authuser=0" alt="Star Wars"></a>
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Harry Potter"><img src="https://lh3.googleusercontent.com/pw/AP1GczNVqI_aIMm3t2gOcOAAC6WfDUlZkF9bEnyAVEG3uwCzcQMFykYvn2nrMaLJ0sZXVq6MSwuu-oWiebFAkEyZn-ZnPOmy9hifSG48F8AS4BVpK4G1esEe_ohJ9t8GKB-V8roT5cr3XW3oZ58nn04ijvApQp0QrixE6qVEZJmvaLVlc0iYhgDZDttA9MQgR9p1XffwnlUBaZdkatYqc_Dm18tGzmuWSXdSinqA3DpwD1AfS9O5mtq8Ql-T821GFQHMHVHA9QBDcsmK-AVxiMTuxB8xt8WOezQQk-u-a5p7FAedRut8KLDSe8kJe_m02x_w6eh461RldfqdfuM0B9mW3-VohJ1pL77S7SOk-MhU9rss7qpw15UXHIWAyKiy0TYafjtiKjohqWHSMeMiPMrHzBgUuETOv7d7zz-y-TwyVZ7656ILjIfe5PZjGFC4-xYPBbk_sttetMuhqBQma5duBH_H008cYvL6AH9pgxEkqPmv9BBvN2XzNBdxSaKz_zg7Dy3dTH05uR7Be6CJRLdC0Mad1q07MStZzific30Y4reYt62y-rWLZ4c4TiJtnjNd8pGTBd7kRuHo_WsVX7-_sa6ddWq96FfXQgHkk0cavinwsUiRWzW5mucBdNPhZB3lypknb3X9dITg2286ePANp9dyLNpia-vtkDyz3FnnsenfF4LepoQh0WI-zeQN0zDcxIOQJk75rRzB2HKp2PikRZ3bG1zCKOQcgya_08CNyTrMJumkL2WBl5JCF0dDNXN7aiciKLQw9x5MzwfIRAt_u1WLEV1RHpQnfDk75p4F4GZ3xxb7rAa-sT-RhsRw2IzbJtWRkggObVdV1vtIGjjFLYo1iNFi5enHUdmWeWJ-y4UT608fsifZAqxrGRyc2S-SB7RzOgWkmBMt4Uai2pjnl2RdtDVUAYNwoRZ1N1gFyA3EB1j1Ek19jkM=w221-h230-s-no-gm?authuser=0" alt="Harry Potter"></a>
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Flight"><img src="https://lh3.googleusercontent.com/pw/AP1GczPbgYcTotBtWh8aUEuoJfIXCpWjtvSR7H6RGhExG9QDDQ8jGHRfzqdrpmVviQyWcOgXGj-XK4qdg3lL6HzYFgVLGHUQJPfkKhLe8J65qGAYoKx3mdP8JaEfCGF1xXCUYIPOcjD4hLami0G9qh5fo_LRjrsyo0STkjFDgIT9e3Fc-iCPHUkV-vRMtCDEnomKbIt3ny_8nUTBrSHU2-lFoc7D3Y_dJW1e3cn8FaimmX-DozZzNrTPLHGFs81Ws8otDcjJdvLOysGkRL3BCAGXy6i8X7_eM9utANOKw3KY6IRzpGEfyr9wDVXyla875nTnDKtPDJEtLFzJm8lUinzxmolhFZyM9WA7CXt165Kr7ETrqwz1YpVRZzdzUH5oPaeUQ_3YZ4TqacC1H-fV2irzoydBC2mo-JKOFGWuZPJHFxNNAdMIQSofbXX26-IKTsPBVSjaxJHvo5nCo_kUMn-KX3a1AoYbK7B-USp1AhRG9fhmw9_2LrORXPMiIwqxjpVDBbW2fbkuoi3DsdpWpjcyg-r-69zkMTLVlXrdyEiPEMHLk73EOdTyorVdKqvsBt3kayZoalOhEMiSG7Oc_BQf41-nV0HXsVnOo9rRChzBFlDiQGPmci_uz-JDB7Lh3K3hVDDXLXjH2lhhUoEEZHb27BYt0RdfBZGZOE1HWPKgL8MltU3ggkYeKPpbl69EA1uZRnwIMIiT-2kKiduICSof0p3VWjjoCaBrXsa7vTm6GlCvTuKbYP2-WCu_B8_Ag9cAfedF3nBTAnw5UWKgZLpcZhzPX64LcN5g-BJD2pAEB0-vQ0pdAUnqABKqgSVOfePDEbuu4a1eh6MzCbPHuYusRAtV9f8Cn3_hidQVbHkwZaipqulyOfYosFJTY1WP23QAREkg52NbzzB_2cQQXvQD99QGOsryrvKdEZJ0WTtPOV0Bjh9S81bsmDI=w275-h230-s-no-gm?authuser=0" alt="Flight"></a>
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Floral"><img src="https://lh3.googleusercontent.com/pw/AP1GczPNEL7J9ZbTs0iqPbWlCLaM2ESJqg8Z0FcDB0t-xvRD7VWdOBsRHJdSA569O7rdA0KguItdXa3UrlciUzkgkDiOjpGQu5F4Xe4bq83A6VWeHsf7JcuH_ZCsGoAzPCKi2N6UphD-xGbXQSW9BrQRIoF4PWhAxq4vLeQPeFbsVu9TOAK_JUsPNHtiyQWsS8IxvsG0Uh6qRobXQtIV0iz0xVmgz5Cz2QUc16DpMkk_feWSjcZeSkTejI7E-SFOEF9fk6UhhjBzMcCeDlYDchOSGzxVdMPHpXixeTpAJCHu4H3qfBdc885LibUEDEmCcCcGzxwvLQI4Dhd5tiaUHTmxw94Y3kGra6lBoRWQNntNm1M_GGPb5AvmE5Z8DjSZ9fzXoEVqUzqFo5R7rjLudlauKhwhTKaQpgLxCpiPs_rKJEOVBkyuyTl-1kLI1ZJWmubLUYT2EILbkJjpx9E-fZ0DGBIaHAQrDhYj6PXCdImD4MXphmwcInDg-CTMmTZrFzSFQvkoGxeLXM7TK3CvCweUm4pWfIJ7IjNQaeKqH6yRxU8_hzHk0E3UJ3Y32vNYG8LmloWsaPZhIDGWY2vK1dZ2zJm6o3PUFT_oyEPiL9OVeYGrZJNqEJbBqaR0p6X0ZATXiSf0NDM8i8AHK62-GlQtiEMVK-4hWxEurXxYrH2Y-h3xRaDaI5timVtJE0OfnJGHdOIc16aCnvdR1sxhEtNtuSxIz6U0DWjjVlgny8zGxm4_htU_ha_3EI-WXH1aHreGvn26e8jeoZLJwxJv606o6tyk1VbtYr0cDp-Cxp-lfroNw8IvLlZpAiz1K4t-a91I8Hzf--13C1DcMIQfDX2uqjOHkV-VKOdgk1uHtrzStvIPZzdZu4JLQyohbVfLOzTwnTgGi-_gAh9NyvWnnnlKNWv9TyL-bwx6u17_QNHOXY8XzpKWVCsyA6Q=w221-h230-s-no-gm?authuser=0" alt="Floral"></a>
+    </div>
+
+
+    <h2>Aurora's Recommended for You</h2>
+
+    <section class="product-grid">
+        <article class="product-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/17999ec7f1145eff3b970126d9ef85a3a60cf6bcc09fb0b2ec7f7567eb5cb5a6?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Exotic Peacock" class="product-image" />
+            <h3 class="product-title">Exotic Peacock</h3>
+            <p>price</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5e17ee0e11fce212ebc05c6ef17d9475d951816964efceb027f7df8e572aba?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Spider Tank" class="product-image" />
+            <h3 class="product-title">Spider Tank</h3>
+            <p>price</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2833544a617ee4fec7274b2ff1e4968256a454f2f64582efa9bdf491c629c297?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Retro Roller Skate" class="product-image" />
+            <h3 class="product-title">Retro Roller Skate</h3>
+            <p>price</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </article>
+        <article class="product-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0f9d91c2fb620bc2163f2e0cb8e15a7ff2fbc87ecf1b4d45a6207c501a4a8a69?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="The Madrigal House" class="product-image" />
+            <h3 class="product-title">The Madrigal House</h3>
+            <p>price</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </article>
+
+        <article class="product-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e90a65395ba219afad7a887fb07210676b83a861e668a44024d0710022a6d0d2?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Space Astronaut" class="product-image" />
+            <h3 class="product-title">Space Astronaut</h3>
+            <p>price</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </article>
+    </section>
+</body>
+</html>

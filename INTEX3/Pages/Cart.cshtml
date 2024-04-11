@@ -1,0 +1,64 @@
+﻿@page
+@model INTEX3.Pages.CartModel
+@{
+}
+
+<h2>CART</h2>
+
+<head>
+    <link rel="stylesheet" href="~/css/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th class="text-right">Amount</th>
+                    <th class="text-right">Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cart?.Lines ?? Enumerable.Empty<Models.Cart.CartLine>())
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td class="text-center">@item.Quantity</td>
+                        <td class="text-right">@item.Product.Price</td>
+                        <td class="text-right">@((item.Quantity * (item.Product.Price ?? 0)).ToString("c"))</td>
+                        <td class="text-center">
+                            <form asp-page-handler="Remove" method="post">
+                                <input type="hidden" name="ProductId" value="@item.Product.ProductId" />
+                                <input type="hidden" name="returnUrl" value="@Model?.ReturnUrl" />
+                                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+                <a class="continue-shopping-button" href="@Model.ReturnUrl">Continue Shopping</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="order-summary" style="padding: 30px">
+            <h3>Order Summary</h3>
+            @foreach (var item in Model.Cart?.Lines ?? Enumerable.Empty<Models.Cart.CartLine>())
+            {
+                <p>@item.Product.Name: @((item.Quantity * (item.Product.Price ?? 0)).ToString("c"))</p>
+            }
+            <h4>Total: @Model.Cart?.CalculateTotal().ToString("c")</h4>
+                <button class="complete-order-button">Complete Order</button>
+        </div>
+    </div>
+</div>
+</body>

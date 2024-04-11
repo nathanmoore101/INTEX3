@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Delete Confirmation";
+}
+@model INTEX3.Models.Product
+
+<h1>Delete Product</h1>
+
+<p>Are you sure you want to delete the following product?</p>
+
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <td>@Model.ProductId</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <!-- Add other properties as needed -->
+</table>
+
+<form method="post" action="@Url.Action("DeleteConfirmed", "Home", new { id = Model.ProductId })">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("AdminProductsPage", "Home")" class="btn btn-secondary">Cancel</a>
+</form>
+

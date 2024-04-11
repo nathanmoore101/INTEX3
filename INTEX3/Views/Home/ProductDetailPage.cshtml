@@ -1,0 +1,65 @@
+﻿@using INTEX3.Infrastructure
+@using INTEX3.Models
+@using INTEX3.Models.ViewModels
+@{
+    ViewData["Title"] = "Product Details";
+}
+@model Product // Update with your product model
+
+
+<head>
+    <link rel="stylesheet" href="~/css/productlist.css">
+</head>
+
+<body>
+<h1>Product Details</h1>
+
+<div class="container">
+    <div class="image">
+        <img src="@Model.ImgLink" alt="@Model.Name" style="max-width: 200px; max-height: 200px; width: auto; height: auto;">
+    </div>
+    <div class="details">
+        <div class="card">
+            <h4>@Model.Name</h4>
+            <p>Year: @Model.Year</p>
+            <p>Number of Parts: @Model.NumParts</p>
+            <p>Price: $@Model.Price</p>
+            <p>Secondary Color: @Model.SecondaryColor</p>
+            <p>Description: @Model.Description</p>
+        </div>
+        <div class="quantity">
+            <button onclick="changeQuantity(-1)">-</button>
+            <input type="text" id="quantity" value="1">
+            <button onclick="changeQuantity(1)">+</button>
+        </div>
+        <button onclick="addToCart()">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+    function changeQuantity(change) {
+        var quantityInput = document.getElementById('quantity');
+        var currentQuantity = parseInt(quantityInput.value);
+        var newQuantity = currentQuantity + change;
+        if (newQuantity < 1) newQuantity = 1; // Prevents negative quantities
+        quantityInput.value = newQuantity;
+    }
+
+    function addToCart() {
+        // Placeholder for add to cart functionality
+        alert("Added to cart!");
+    }
+</script>
+
+</body>
+</html>
+
+@* <div class="card">
+    <h4>@Model.Name</h4>
+    <img src="@Model.ImgLink" alt="@Model.Name" style="max-width: 200px; max-height: 200px; width: auto; height: auto;" />
+    <p>Year: @Model.Year</p>
+    <p>Number of Parts: @Model.NumParts</p>
+    <p>Price: $@Model.Price</p>
+    <li>Secondary Color: @Model.SecondaryColor</li>
+    <li>Description: @Model.Description</li>
+</div> *@

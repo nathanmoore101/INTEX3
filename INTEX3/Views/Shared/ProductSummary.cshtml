@@ -1,0 +1,41 @@
+﻿ @using INTEX3.Infrastructure
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Product
+<div class="col-4">
+    <div class="card" style="border: none; display: flex; flex-direction: column;">
+        <div class="card-body ms-2" style="overflow: hidden;">
+            <!-- Wrap image in an anchor tag -->
+            <a href="@Url.Action("ProductDetailPage", "Home", new { id = Model.ProductId })">
+                <img src="@Model.ImgLink" class="mx-auto d-block" width="260" height="260" style="object-fit: cover;">
+            </a>
+            <br />
+            <!-- Wrap product name in an anchor tag -->
+            <a href="@Url.Action("ProductDetailPage", "Home", new { id = Model.ProductId })" style="text-decoration: none; color: inherit;">
+                <h5 class="card-title ms-2 move-right-8px" style="height:40px;">@Model.Name</h5>
+            </a>
+            <p class="card-text ms-2 move-right-8px">$@Model.Price</p>
+            <form id="@Model.ProductId" method="post" asp-page="/Cart">
+                <input type="hidden" name="productId" value="@Model.ProductId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <div class="justify-content-center align-items-center">
+                    <button type="submit" class="d-flex btn btn-primary btn-xl justify-content-center align-items-center" style="padding: 15px 90px; background-color: #069d9f; border: 1px solid rgba(255, 255, 255, 1); border-radius: 4px; font-size: 16px; color: #fff; font-weight: 400; text-align: center;">
+                        Add to Cart
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b17f0613cdb554428e6cca05216b9b7539c728aa3586a132b787a987f103f74f?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="View details icon" class="ms-2" style="width: 16px; height: 16px; object-fit: auto; object-position: center;" />
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@* <form id="@Model.ProductId" method="post" asp-page="/Cart">
+    <input type="hidden" name="productId" value="@Model.ProductId" />
+    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+    <button type="submit" class="btn-outline-success btn-sm float-end">Buy Now</button>
+</form> *@
