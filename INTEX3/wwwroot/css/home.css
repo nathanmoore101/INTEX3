@@ -78,7 +78,8 @@
 .product-title {
     margin-top: 15px;
     color: #000;
-    font: 600 20px/129% "Open Sans", sans-serif;
+    font: 600 20px/129%;
+    font-family:Montserrat;
     letter-spacing: 0.1px;
     text-transform: capitalize;
 }
@@ -87,7 +88,8 @@
     margin-top: 5px;
     padding: 19px 60px;
     color: #fff;
-    font: 400 16px "Open Sans", sans-serif;
+    font: 400 16px;
+    font-family: Montserrat;
     text-align: center;
     background-color: #069d9f;
     border: 1px solid #fff;
