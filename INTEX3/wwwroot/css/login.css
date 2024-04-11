@@ -16,9 +16,9 @@
 .rectangle {
     width: 70%;
     background: #FCAC00;
-    border-radius: 60px 60px 0px 0px;
+    border-radius: 60px 60px 30px 30px;
     box-shadow: rgba(0,0,0,.25) 5px 5px 5px;
-    margin: 100px auto 0;
+    margin: 120px auto 0;
     padding-top: 10px;
     padding-bottom: 120px;
 }
@@ -26,8 +26,8 @@
 @media (max-width: 768px) {
     .rectangle {
         width: 90%; /* Increased to take more space on smaller screens */
-        height: 700px; /* Reduced for smaller screen heights */
-        border-radius: 30px 30px 0px 0px; /* Adjusted for a less pronounced effect on smaller screens */
+        height: 800px; /* Reduced for smaller screen heights */
+        border-radius: 30px 30px 30px 30px; /* Adjusted for a less pronounced effect on smaller screens */
         box-shadow: rgba(0,0,0,.25) 3px 3px 3px; /* Slightly reduced shadow for a subtler effect */
         margin-top: 80px; /* Adjusted margin to better fit the smaller viewport */
     }
