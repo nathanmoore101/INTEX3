@@ -39,11 +39,14 @@
                                         <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="AboutUsPage">About Me</a>
                                     </li>
                                     <li class="nav-item">
+                                        <partial name="_LoginPartial" />
+                                    </li>
+                                    <li class="nav-item">
                                         <span class="nav-link text-dark">|</span>
                                     </li>
                                     <li class="nav-item d-flex align-items-center">
                                         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5641b9bea754d62464bb8bf326507ddc0ceac3135c12f71109dcfbc2a1d079f1?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="User icon" width="25" height="25" class="me-2">
-                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="AdminHomePage">Sign in/Register </a>
+                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="AdminHomePage">Admin</a>
                                     </li>
                                     <li class="nav-item">
                                         <vc:cart-summary />
