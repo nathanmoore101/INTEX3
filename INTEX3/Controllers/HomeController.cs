@@ -158,7 +158,7 @@ namespace INTEX3.Controllers
 
         //ADMIN USERS PAGE + CRUD
         //[Authorize]
-        public IActionResult AdminUsersPage()
+        public IActionResult AdminCustomersPage()
         {
             // Retrieve the list of products from your repository
             var customers = _productRepository.GetAllCustomers(); // Adjust this method name as per your repository implementation
