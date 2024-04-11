@@ -1,0 +1,132 @@
+﻿body {
+    background-image: url("https://i.pinimg.com/originals/df/27/7b/df277b5607dec56f066f6b19f152d056.jpg");
+    background-color: white;
+    color: black;
+    font-family: Montserrat;
+    justify-content: space-between; /* Space between items, pushing footer down */
+}
+
+.container {
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+
+.rectangle {
+    width: 70%;
+    background: #FCAC00;
+    border-radius: 60px 60px 0px 0px;
+    box-shadow: rgba(0,0,0,.25) 5px 5px 5px;
+    margin: 100px auto 0;
+    padding-top: 10px;
+    padding-bottom: 120px;
+}
+
+@media (max-width: 768px) {
+    .rectangle {
+        width: 90%; /* Increased to take more space on smaller screens */
+        height: 700px; /* Reduced for smaller screen heights */
+        border-radius: 30px 30px 0px 0px; /* Adjusted for a less pronounced effect on smaller screens */
+        box-shadow: rgba(0,0,0,.25) 3px 3px 3px; /* Slightly reduced shadow for a subtler effect */
+        margin-top: 80px; /* Adjusted margin to better fit the smaller viewport */
+    }
+}
+
+
+.login-button {
+    border-radius: 10px;
+    background-color: #fff;
+    border-color: rgb(165, 202, 24);
+    max-width: 502px;
+    align-items: center;
+    font-size: 20px;
+    color: #a5ca18;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    line-height: 180%;
+    justify-content: center;
+    padding: 4px 60px;
+    box-shadow: rgba(0,0,0,.20) 3px 3px 3px;
+}
+
+.custom-login-button {
+    border-radius: 10px;
+    border-color: #a5ca18;
+    border-style: solid;
+    background-color: #a5ca18;
+    box-shadow: rgba(0,0,0,.20) 3px 3px 3px;
+    max-width: 203px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    padding: 3px 60px;
+    font: 700 20px/180% "Open Sans", sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .custom-login-button:hover {
+        border-color: #FFF;
+
+    }
+
+    @media (max-width: 991px) {
+        .login-button {
+            padding: 0 20px;
+        }
+    }
+
+    .login-content {
+    display: flex;
+    gap: 13px;
+}
+
+.login-text {
+    font-family: Open Sans, sans-serif;
+    flex-grow: 1;
+    margin: auto 0;
+}
+
+.microsoft-logo {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 27px;
+}
+
+
+h2 {
+    padding-top:20px;
+    font-weight:bold;
+}
+
+.pb-3 {
+    padding-bottom: 0px !important;
+}
+
+h5 {
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.line-or-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .line-or-line .line {
+        flex-grow: 1; /* Allows the line to fill up space */
+        height: 2px; /* Height of the line */
+        background: black; /* Color of the line */
+        margin: 0 50px; /* Space between the text and the line */
+    }
+
+    .line-or-line .text {
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 20px 0px;/* Keeps the text from wrapping */
+    }

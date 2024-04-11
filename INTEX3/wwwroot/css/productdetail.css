@@ -1,41 +1,99 @@
 ﻿.container {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* 1 fraction for the image, 2 fractions for the details */
-    gap: 20px;
+    display: flex; /* Use Flexbox instead of Grid */
+    flex-direction: row; /* Align children in a row */
+    justify-content: center;
+    gap: 20px; /* Keep your gap for spacing between items */
     margin-top: 20px;
     width: 100%; /* Ensures the container takes full width of its parent */
+    align-items: flex-start;
 }
 
 .image {
-    padding: 10px;
+    padding-top: 13%;
+    /* If you need specific control over the width of these elements,
+       you can use flex-basis or set a width/maximum width here. */
 }
 
 .details {
-    padding: 10px;
+    padding-top: 13%;
+    /* If you need specific control over the width of these elements,
+       you can use flex-basis or set a width/maximum width here. */
 }
 
 
+
+/* The rest of your CSS remains unchanged. */
 .quantity {
     display: flex;
     align-items: center;
-    gap: 10px;
     margin-top: 20px;
+
 }
 
     .quantity input {
-        width: 40px;
+        width: 60px;
         text-align: center;
+        border-color: lightgray;
+        height: 37px;
+        border-style: solid;
     }
 
 button {
-    background-color: #4CAF50;
+    background-color: lightgray;
     color: white;
     padding: 10px 20px;
-    margin: 20px 0;
+    margin: 0px 0px 0px 0px;
     border: none;
     cursor: pointer;
+    border-radius: 0px 50px 50px 0px;
+}
+
+button:nth-child(1) {
+    border-radius: 50px 0px 0px 50px;
 }
 
     button:hover {
-        background-color: #45a049;
+        background-color: #069d9f;
+    }
+
+#description {
+    transition: height 0.5s ease-out; /* Smooth transition for the height */
+    overflow: hidden;
+}
+
+.flex-container {
+    display: flex; /* This will align the child divs side by side */
+    align-items: center; /* This will vertically center align the items */
+    gap: 20px; /* Optional: Adds some space between the two divs */
+}
+
+h4 {
+    color: #FCAC00;
+    font-weight:700;
+    font-size: 48px;
+    text-transform: uppercase;
+    font-family: Montserrat;
+}
+
+body {
+    line-height:17px;
+}
+
+.breadcrumbs-container {
+    display: flex;
+    align-items: center;
+    margin-left: 0px; /* Adjust as needed for alignment */
+    font-family: Montserrat;
+    font-size: 15px;
+}
+
+    .breadcrumbs-container a {
+        font-weight: bold;
+        color: #069d9f;
+       
+    }
+
+    .breadcrumbs-container span {
+        font-weight: 100;
+        color: black;
     }

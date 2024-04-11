@@ -8,41 +8,65 @@
 
 
 <head>
-    <link rel="stylesheet" href="~/css/productlist.css">
+    <link rel="stylesheet" href="~/css/productdetail.css">
+
 </head>
 
 <body>
+    <div class="breadcrumbs-container" style="padding-top: 70px">
+        <a asp-area="" asp-controller="Home" asp-action="ProductListPage">Products</a>
+        <span style="margin-left: 0px;">&gt; @Model.Name</span>
+    </div>
 
     <div class="container">
-        <div class="image">
-            <img src="@Model.ImgLink" alt="@Model.Name">
-        </div>
-        <div class="details">
-                <h4>@Model.Name</h4>
-                <p>Year: @Model.Year</p>
-                <p>Number of Parts: @Model.NumParts</p>
-                <p>Price: $@Model.Price</p>
-                <p>Secondary Color: @Model.SecondaryColor</p>
-                <p>Description: @Model.Description</p>
+                <div class="image">
+                    <img src="@Model.ImgLink" alt="@Model.Name" style="max-height: 500px; max-width:800px">
+                </div>
+                <div class="details">
+                    <h4>@Model.Name</h4>
+            <h5>$@Model.Price USD</h5>
+
+
+                    <br><br/>
+            <p><span style="font-weight: bold">Year: </span>@Model.Year</p>
+            <p><span style="font-weight: bold">Number of Parts: </span>@Model.NumParts</p>
+            <p><span style="font-weight: bold">Category: </span>@Model.Category</p>
+            <p><span style="font-weight: bold">Primary Color: </span>@Model.PrimaryColor</p>
+            <p><span style="font-weight: bold">Secondary Color: </span>@Model.SecondaryColor</p>
+
+              
+            <button type="button" onclick="toggleDescription()" style="background: #FFF; color: black; font-weight: bold; text-align: left; padding: 0px 0px 0px 0px">Show Description ▼</button>
+            <div id="description" style="overflow: hidden; height: 0;">
+                <p>@Model.Description</p>
+            </div>
+
+            <br><br />
+
+            <!-- Form remains outside of the collapsible description -->
             <form id="@Model.ProductId" method="post" asp-page="/Cart">
                 <input type="hidden" name="productId" value="@Model.ProductId" />
                 <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                 <input type="hidden" id="productQuantity" name="quantity" value="1" /> <!-- Hidden field for quantity -->
 
-                <div class="quantity">
-                    <button type="button" onclick="changeQuantity(-1)">-</button>
-                    <input type="text" id="quantity" value="1" readonly>
-                    <button type="button" onclick="changeQuantity(1)">+</button>
+                <div class="flex-container">
+                    <div class="quantity">
+                        <button type="button" onclick="changeQuantity(-1)">-</button>
+                        <input type="text" id="quantity" value="1" readonly>
+                        <button type="button" onclick="changeQuantity(1)">+</button>
+                    </div>
+                    <div class="justify-content-center align-items-center">
+                        <button type="submit" class="d-flex btn btn-primary btn-xl justify-content-center align-items-center" style="padding: 15px 90px; background-color: #069d9f; border: 1px solid rgba(255, 255, 255, 1); border-radius: 4px; font-size: 16px; color: #fff; font-weight: 400; text-align: center;">
+                            Add to Cart
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b17f0613cdb554428e6cca05216b9b7539c728aa3586a132b787a987f103f74f?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="View details icon" class="ms-2" style="width: 16px; height: 16px; object-fit: auto; object-position: center;" />
+                        </button>
+                    </div>
                 </div>
-                <div class="justify-content-center align-items-center">
-                    <button type="submit" class="d-flex btn btn-primary btn-xl justify-content-center align-items-center" style="padding: 15px 90px; background-color: #069d9f; border: 1px solid rgba(255, 255, 255, 1); border-radius: 4px; font-size: 16px; color: #fff; font-weight: 400; text-align: center;">
-                        Add to Cart
-                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b17f0613cdb554428e6cca05216b9b7539c728aa3586a132b787a987f103f74f?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="View details icon" class="ms-2" style="width: 16px; height: 16px; object-fit: auto; object-position: center;" />
-                    </button>
-                </div>
+
             </form>
         </div>
     </div>
+
+
 
     <script>
         function changeQuantity(change) {
@@ -55,6 +79,39 @@
             quantityInput.value = newQuantity;
             hiddenQuantityInput.value = newQuantity; // Update the hidden field to match
         }
+
+
+        function toggleDescription() {
+            var description = document.getElementById('description');
+            if (description.style.height === '0px' || description.style.height === '') {
+                // Expanding
+                const scrollHeight = description.scrollHeight + "px";
+                description.style.height = scrollHeight;
+                document.querySelector('.details > button').textContent = "Hide Description ▲";
+
+                // Ensure the height is set back to 'auto' after the transition ends
+                // to accommodate dynamic content changes (e.g., images loading)
+                description.addEventListener('transitionend', function () {
+                    description.style.height = 'auto';
+                }, { once: true }); // The listener is removed after execution
+            } else {
+                // Collapsing
+                // Reset height to current, then to 0 to trigger transition
+                description.style.height = description.scrollHeight + "px";
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        description.style.height = "0";
+                        document.querySelector('.details > button').textContent = "Show Description ▼";
+                    });
+                });
+            }
+        }
+
+
+
+
     </script>
+
+
 
 </body>

@@ -38,7 +38,7 @@ header.bg-light {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 150px;
+    height: 130px;
 }
 
 .footer-top {
@@ -47,8 +47,11 @@ header.bg-light {
     width: 100%;
     align-items: flex-start;
     gap: 20px;
-    body {
+}
+
+body {
   margin-bottom: 60px;
+  font-family: Montserrat;
 }
 
 .fixed-bottom {
@@ -92,7 +95,7 @@ header.bg-light {
     align-self: start;
     flex-basis: auto;
     flex-grow: 1;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Montserrat;
     margin-top: 32px;
 }
 
@@ -122,12 +125,12 @@ header.bg-light {
 }
 
 .nav-link {
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Montserrat;
 }
 
 .separator {
     align-self: start;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Montserrat;
     font-weight: 400;
     margin-top: 13px;
 }
@@ -148,7 +151,7 @@ header.bg-light {
 .user-link {
     flex-basis: auto;
     flex-grow: 1;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Montserrat;
     margin: auto 0;
 }
 
@@ -161,7 +164,7 @@ header.bg-light {
 }
 
 .open-sans-condensed {
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Montserrat;
 }
 
 
@@ -186,7 +189,7 @@ header.bg-light {
 }
 
 .add-to-cart-text {
-    font-family: Open Sans, sans-serif;
+    font-family: Montserrat;
     flex-grow: 1;
 }
 
