@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using INTEX3.Models;
 using INTEX3.Data;
 using INTEX3.Areas.Identity.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -47,8 +50,14 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
     microsoftOptions.ClientSecret = configuration["Authentication:Microsoft:ClientSecret"];
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    // Enable roles
+    options.User.RequireUniqueEmail = true;
+})
+.AddRoles<IdentityRole>() // Add this line to enable Role services
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Password settings from the second program.cs
 builder.Services.Configure<IdentityOptions>(options =>
@@ -63,10 +72,34 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 var app = builder.Build();
 
+// Assign roles to users
+var userManager = services.BuildServiceProvider().GetRequiredService<UserManager<IdentityUser>>();
+var roleManager = services.BuildServiceProvider().GetRequiredService<RoleManager<IdentityRole>>();
+
+// Create Roles
+if (!await roleManager.RoleExistsAsync("admin"))
+{
+    var role = new IdentityRole("admin");
+    await roleManager.CreateAsync(role);
+}
+
+if (!await roleManager.RoleExistsAsync("customer"))
+{
+    var role = new IdentityRole("customer");
+    await roleManager.CreateAsync(role);
+}
+
+// Assign admin role to a user
+var adminUser = await userManager.FindByEmailAsync("nathanmoore101@gmail.com"); // Replace with your admin email
+if (adminUser != null)
+{
+    await userManager.AddToRoleAsync(adminUser, "admin");
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -79,12 +112,20 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Use Authentication before Authorization
 app.UseAuthorization();
+
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
+    await next();
+});
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=HomePage}/{id?}");
 app.MapRazorPages();
-app.UseSession();
 
 app.Run();

@@ -284,7 +284,7 @@ namespace INTEX3.Controllers
         {
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult AdminHomePage()
         {
             return View();
