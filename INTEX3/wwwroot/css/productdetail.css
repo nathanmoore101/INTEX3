@@ -1,0 +1,41 @@
+﻿.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 fraction for the image, 2 fractions for the details */
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%; /* Ensures the container takes full width of its parent */
+}
+
+.image {
+    padding: 10px;
+}
+
+.details {
+    padding: 10px;
+}
+
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+    .quantity input {
+        width: 40px;
+        text-align: center;
+    }
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }

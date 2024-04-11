@@ -1,0 +1,98 @@
+﻿h2 {
+    font-size: 36px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    padding-top:110px
+}
+
+tr {
+    color: #000;
+    background-color: ghostwhite;
+}
+
+.order-summary {
+    color: white;
+    height: 100%; /* Take up all available vertical space */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Space out the summary and the button */
+    background-color: #FCAC00
+
+}
+
+
+.complete-order-button {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    border: 1px solid #fcac00;
+    background-color: #fff;
+    color: #fcac00;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: right;
+    padding: 16px 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 3px #fcac00;
+}
+
+    .complete-order-button:hover {
+        background-color: #fcac00; /* Swapped background color */
+        color: #fff; /* Swapped text color */
+        border: 1px solid #fff;
+    }
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Take at least the full height of the viewport */
+
+}
+
+.continue-shopping-button {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    border: 1px solid #069D9F;
+    background-color: #fff;
+    color: #069D9F;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 16px 60px;
+    display: inline-flex; /* Changed to inline-flex for button content alignment */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0px #069D9F;
+    text-decoration: none; /* Remove underline from link */
+    width: 40%; /* Adjust width as needed or remove for content-based sizing */
+
+}
+
+    .continue-shopping-button:hover {
+        background-color: #069D9F; /* Swapped background color */
+        color: #fff; /* Swapped text color */
+        box-shadow: 0 0 0 1px #fff;
+    }.continue-shopping-button {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    border: 1px solid #069D9F;
+    background-color: #fff;
+    color: #069D9F;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 16px 60px;
+    display: inline-flex; /* Changed to inline-flex for button content alignment */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0px #069D9F;
+    text-decoration: none; /* Remove underline from link */
+    width: 40%; /* Adjust width as needed or remove for content-based sizing */
+}
+
+    .continue-shopping-button:hover {
+        background-color: #069D9F; /* Swapped background color */
+        color: #fff; /* Swapped text color */
+        box-shadow: 0 0 0 1px #fff;
+    }

@@ -1,0 +1,60 @@
+﻿@using INTEX3.Infrastructure
+@using INTEX3.Models
+@using INTEX3.Models.ViewModels
+@{
+    ViewData["Title"] = "Product Details";
+}
+@model Product // Update with your product model
+
+
+<head>
+    <link rel="stylesheet" href="~/css/productlist.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="image">
+            <img src="@Model.ImgLink" alt="@Model.Name">
+        </div>
+        <div class="details">
+                <h4>@Model.Name</h4>
+                <p>Year: @Model.Year</p>
+                <p>Number of Parts: @Model.NumParts</p>
+                <p>Price: $@Model.Price</p>
+                <p>Secondary Color: @Model.SecondaryColor</p>
+                <p>Description: @Model.Description</p>
+            <form id="@Model.ProductId" method="post" asp-page="/Cart">
+                <input type="hidden" name="productId" value="@Model.ProductId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <input type="hidden" id="productQuantity" name="quantity" value="1" /> <!-- Hidden field for quantity -->
+
+                <div class="quantity">
+                    <button type="button" onclick="changeQuantity(-1)">-</button>
+                    <input type="text" id="quantity" value="1" readonly>
+                    <button type="button" onclick="changeQuantity(1)">+</button>
+                </div>
+                <div class="justify-content-center align-items-center">
+                    <button type="submit" class="d-flex btn btn-primary btn-xl justify-content-center align-items-center" style="padding: 15px 90px; background-color: #069d9f; border: 1px solid rgba(255, 255, 255, 1); border-radius: 4px; font-size: 16px; color: #fff; font-weight: 400; text-align: center;">
+                        Add to Cart
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b17f0613cdb554428e6cca05216b9b7539c728aa3586a132b787a987f103f74f?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="View details icon" class="ms-2" style="width: 16px; height: 16px; object-fit: auto; object-position: center;" />
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function changeQuantity(change) {
+            var quantityInput = document.getElementById('quantity');
+            var hiddenQuantityInput = document.getElementById('productQuantity'); // Reference to the hidden input
+            var currentQuantity = parseInt(quantityInput.value);
+            var newQuantity = currentQuantity + change;
+
+            if (newQuantity < 1) newQuantity = 1; // Prevents negative quantities
+            quantityInput.value = newQuantity;
+            hiddenQuantityInput.value = newQuantity; // Update the hidden field to match
+        }
+    </script>
+
+</body>

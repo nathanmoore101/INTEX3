@@ -1,0 +1,113 @@
+﻿@using INTEX3.Infrastructure
+@using INTEX3.Models
+@using INTEX3.Models.ViewModels
+@model ProductListViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/productlist.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <h2 class="productlistheader">PRODUCTS</h2>
+
+
+    <div class="container mt-5">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-between align-items-center">
+                
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Showing @(Model.PaginationInfo.ItemsPerPage) Products
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form method="get">
+                        <li><button class="dropdown-item" type="submit" name="pageSize" value="5">5</button></li>
+                        <li><button class="dropdown-item" type="submit" name="pageSize" value="10">10</button></li>
+                        <li><button class="dropdown-item" type="submit" name="pageSize" value="20">20</button></li>
+                        </form>
+                    </ul>
+                </div>
+                <div>
+                    <button class="btn buttonfilter" onclick="openNav()">
+                        ☰ Filter
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('categoryDropdown')">Categories</button>
+            <div class="dropdown-menu" id="categoryDropdown">
+                <vc:product-category />
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('colorDropdown')">Colors</button>
+            <div class="dropdown-menu" id="colorDropdown">
+                <vc:product-color />
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="overlay" class="overlay" onclick="closeNav()"></div> <!-- Overlay element -->
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "350px";
+            document.getElementById("overlay").style.display = "block"; // Show the overlay
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("overlay").style.display = "none"; // Hide the overlay
+        }
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
+        }
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+    </script>
+
+    <div class="container" style="padding-top: 30px;">
+        <div class="row">
+            @foreach (Product p in Model.Products)
+            {
+                <partial name="ProductSummary" model="p" />
+            }
+        </div>
+    </div>
+
+    <div page-model="@Model.PaginationInfo" page-action="ProductListPage" page-class-enabled="true" page-class="btn"
+         page-class-normal="custom-pagination-btn" page-class-selected="custom-pagination-btn active"
+         page-url-productCategory="@Model.CurrentProductCategory" class="btn-group pagination-container"></div>
+
+
+</body>
+</html>

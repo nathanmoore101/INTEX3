@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Recent Orders";
+}
+<h1>Recent Orders</h1>
+
+@model IEnumerable<Order> 
+
+<!-- Your table rendering code here -->
+
+
+@* @model List<Order> //UPDATE WITH CORRECT MODEL *@
+<nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">ORDERS</a>
+    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
+    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
+</nav>
+
+
+<main class="transactions-container">
+    <div style="background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/b2e7330d2c89baeade37994aaea2e36f0630d9f48289c3ea3678626c340b5fbf?apiKey=4aa74d2dfab244e68988085cdfab5351'); height: 500px; background-size: cover; background-position: center; color: white; text-align: center; display: flex; justify-content">
+        <table class="table table-bordered">
+            <thead class="fw-bold">
+                <tr>
+                    <td>Transaction ID</td>
+                    <td>Customer ID</td>
+                    <td>Date</td>
+                    <td>Day of Week</td>
+                    <td>Time</td>
+                    <td>Entry Mode</td>
+                    <td>Amount</td>
+                    <td>Type of Transaction</td>
+                    <td>Country of Transaction</td>
+                    <td>Shipping Address</td>
+                    <td>Bank</td>
+                    <td>Type of Card</td>
+                    <td>Fraud</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+
+                </tr>
+
+            </thead>
+
+            @foreach (var x in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@x.TransactionId</td>
+                        <td>@x.CustomerId</td>
+                        <td>@x.Date</td>
+                        <td>@x.DayOfWeek</td>
+                        <td>@x.Time</td>
+                        <td>@x.EntryMode</td>
+                        <td>@x.Amount</td>
+                        <td>@x.TypeOfTransaction</td>
+                        <td>@x.CountryOfTransaction</td>
+                        <td>@x.ShippingAddress</td>
+                        <td>@x.Bank</td>
+                        <td>@x.TypeOfCard</td>
+                        <td>@x.Fraud</td>
+                        <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TransactionId">Edit</a></td>
+                        <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TransactionId">Delete</a></td>
+                    </tr>
+
+                </tbody>
+            }
+        </table>
+    </div>
+</main>
+

@@ -1,0 +1,64 @@
+﻿.navbar {
+    z-index: 1050 !important; /* Ensures it's above the carousel and most other elements */
+}
+
+
+.container, .row {
+    margin: 0 !important; /* Override margin */
+    padding: 0 !important; /* Override padding */
+}
+
+.grid-container {
+    padding-top:100px;
+    z-index: 1000;
+    display: grid;
+    /* Allocate 1 fraction of space to the image and 3 fractions to the text */
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    gap: 20px; /* Adjust the gap between text and image as needed */
+}
+
+/* For the second container where the image should be on the left */
+.image-left {
+    /* Reverse the order by setting the image column to 1fr and text to 3fr */
+    grid-template-columns: 1fr 3fr;
+}
+
+.text-content {
+    padding: 50px; /* Padding around the text for better readability */
+}
+
+/* Setting max-width on images is no longer necessary here, as the grid layout controls the image size */
+.right-anchored-image, .left-anchored-image {
+    width: 100%; /* Ensure the image fills its grid area */
+    height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+    .grid-container, .image-left {
+        /* Stack the text and image vertically on smaller screens */
+        grid-template-columns: 1fr;
+    }
+
+    .right-anchored-image, .left-anchored-image {
+        max-width: 100%; /* Allow the image to take full width in a stacked layout */
+        justify-self: center; /* Center the image within its grid area */
+    }
+
+    .text-content {
+        /* Optional: Adjust text content styling for smaller screens */
+    }
+}
+
+h2 {
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* 700 for bold */
+    padding-bottom: 30px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 30px;
+}
+

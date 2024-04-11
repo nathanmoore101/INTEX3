@@ -3,44 +3,110 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - INTEX3</title>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/INTEX3.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/INTEX2.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css">
+
+   
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+    <div class="fixed-top">
+        <header class="bg-light shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">INTEX3</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <a class="navbar-brand d-flex align-items-center text-dark" asp-area="" asp-controller="Home" asp-action="Homepage">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2cf5b8b5b57100ddb3901f3129096be61985fd4ef0b289fd8abf68f5aa804852?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="AuroraBricks logo" width="auto" height="55" class="me-2">
+                            <span class="fs-2 fw-bold open-sans-condensed">AURORABRICKS</span>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="Homepage">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="ProductListPage">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="AboutUsPage">About Me</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <partial name="_LoginPartial" />
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-link text-dark">|</span>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5641b9bea754d62464bb8bf326507ddc0ceac3135c12f71109dcfbc2a1d079f1?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="User icon" width="25" height="25" class="me-2">
+                                        <a class="nav-link text-dark open-sans-condensed fw-bold" asp-area="" asp-controller="Home" asp-action="AdminHomePage">Admin</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <vc:cart-summary />
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </header>
+    </div>
+
+
+    <div class="row m-1 p-1">
+        <div class="col-3">
+        </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+<div class="row m-1 p-1">
+    <div class="col-3">
+        @* <vc:product-category" /> *@
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - INTEX3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer mt-auto bg-light">
+        <div class="container-fluid">
+            <div class="row bg-light align-items-start expand-height">
+                <div class="col-auto d-flex align-items-start">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2cf5b8b5b57100ddb3901f3129096be61985fd4ef0b289fd8abf68f5aa804852?apiKey=4aa74d2dfab244e68988085cdfab5351&" class="img-fluid" style="width: 111px;" alt="Logo" loading="lazy" />
+                    <div class="d-flex flex-column ms-4">
+                        <h1 class="text-uppercase mb-1 fs-2 fw-bold open-sans-condensed;">AURORABRICKS</h1>
+                        <div class="align-self-end d-flex align-items-start gap-1 mt-1">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f633c93057eda970d72484813d7bbc91bf9cad4df3ccec79d3ac9378835eb631?apiKey=4aa74d2dfab244e68988085cdfab5351&" class="img-fluid" style="width: 24px;" alt="Social 1" loading="lazy" />
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ee2bcdeb049de2d3723d9235d644c7750c0bcb1123e19933ae147587b170092?apiKey=4aa74d2dfab244e68988085cdfab5351&" class="img-fluid" style="width: 26px;" alt="Social 2" loading="lazy" />
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ab5645439581e171d17a31668a92d12a24b030abdc82cc89f20e29db46619a24?apiKey=4aa74d2dfab244e68988085cdfab5351&" class="img-fluid" style="width: 26px;" alt="Social 3" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end mt-5">
+                    <div class="col-auto text-end" style="font-size: 10px; line-height: 20px; letter-spacing: 0.1px; text-transform: capitalize;">
+                        <span>LEGO and AuroraBricks are trademarks of the LEGO Group. © 2024 AuroraBricks</span><br />
+                        <span>All rights reserved. Some LEGO® sets contain small parts that are NOT suitable for and may pose a hazard</span><br />
+                        <span>to children under 3 years of age. LEGO® DUPLO® sets have larger pieces which are specially designed for</span><br />
+                        <span>children under 3. Use of this website constitutes acceptance of the</span>
+                        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a><span>.</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

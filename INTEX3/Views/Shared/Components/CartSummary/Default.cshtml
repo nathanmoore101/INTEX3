@@ -1,0 +1,24 @@
+﻿@using INTEX3.Infrastructure
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Cart
+
+<div>
+    @if (Model.Lines.Count() > 0)
+    {
+        <small class="navbar-text">
+            <b>Your Cart:</b>
+            @Model.Lines.Sum(x => x.Quantity) item(s)
+            @Model.CalculateTotal().ToString("c")
+        </small>
+    }
+
+    <a  asp-page="/Cart"
+        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/737925507f5b373c491e3a817b9ac8527a40d69f9b612ff0ca005812e7007ee8?apiKey=4aa74d2dfab244e68988085cdfab5351&" alt="Shopping cart icon" width="29" height="38">
+    </a>
+</div>

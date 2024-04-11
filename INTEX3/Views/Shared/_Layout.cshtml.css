@@ -1,48 +1,294 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿.header {
+    background-color: #f2f2f3;
+    font-family: 'Open Sans', sans-serif;
+    height: 30px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 64px;
+    gap: 20px;
+    width: 100%;
+    z-index: 1050;
+}
+header.bg-light {
+    position: relative;
+    z-index: 1050;
 }
 
-a {
-  color: #0077cc;
+@media (max-width: 991px) {
+    .header {
+        flex-wrap: wrap;
+        max-width: 100%;
+        padding: 0 20px;
+    }
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.logo-container {
+    display: flex;
+    gap: 0;
+    font-size: 36px;
+    line-height: 100%;
+    white-space: nowrap;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+@media (max-width: 991px) {
+    .logo-container {
+        white-space: initial;
+    }
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.logo-img {
+    aspect-ratio: 1.41;
+    max-width: 30px;
+    object-fit: auto;
+    object-position: center;
+    width: 111px;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.company-name {
+    align-self: start;
+    flex-basis: auto;
+    flex-grow: 1;
+    font-family: montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-top: 32px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.nav-container {
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    gap: 20px;
+    justify-content: space-between;
+    line-height: 180%;
+    margin: auto 0;
+}
+
+@media (max-width: 991px) {
+    .nav-container {
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+}
+
+.nav-links {
+    align-self: stretch;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin: auto 0;
+}
+
+.nav-link {
+    font-family: Open Sans, sans-serif;
+}
+
+.separator {
+    align-self: start;
+    font-family: Open Sans, sans-serif;
+    font-weight: 400;
+    margin-top: 13px;
+}
+
+.user-container {
+    align-self: stretch;
+    display: flex;
+    gap: 7px;
+    margin: auto 0;
+}
+
+.user-icon {
+    aspect-ratio: 1;
+    object-position: center;
+    width: 25px;
+}
+
+.user-link {
+    flex-basis: auto;
+    flex-grow: 1;
+    font-family: Open Sans, sans-serif;
+    margin: auto 0;
+}
+
+.cart-icon {
+    align-self: stretch;
+    aspect-ratio: 0.76;
+    object-fit: auto;
+    object-position: center;
+    width: 29px;
+}
+
+.open-sans-condensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+
+
+}
+
+.move-up-16px {
+    margin-top: -16px;
+}
+
+.move-right-8px {
+    margin-right: -8px;
+}
+
+.expand-height{
+    height: 250px;
+}
+
+.products-container {
+    align-self: center;
+    display: flex;
+    margin-top: 129px;
+    width: 100%;
+    max-width: 1324px;
+    align-items: start;
+    gap: 20px;
+    font-size: 16px;
+    color: #069d9f;
+    font-weight: 400;
+    padding: 0 20px;
+}
+
+@media (max-width: 991px) {
+    .products-container {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+}
+
+.products-count {
+    justify-content: center;
+    border-radius: 30px;
+    border: 1px solid rgba(6, 157, 159, 1);
+    background-color: var(--Neutral-White, #fff);
+    display: flex;
+    margin-top: 9px;
+    gap: 9px;
+    text-align: center;
+    padding: 16px 39px;
+}
+
+@media (max-width: 991px) {
+    .products-count {
+        padding: 0 20px;
+    }
+}
+
+.count-text {
+    font-family: Open Sans, sans-serif;
+    flex-grow: 1;
+}
+
+.arrow-icon {
+    aspect-ratio: 2.33;
+    object-fit: auto;
+    object-position: center;
+    width: 14px;
+    margin: auto 0;
+}
+
+.products-heading {
+    color: #000;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+    flex-grow: 1;
+    flex-basis: auto;
+    font: 600 36px/100% Open Sans, sans-serif;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    text-align: center;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .filter-container {
+        white-space: initial;
+    }
+}
+
+.filter-button {
+    font-family: Open Sans, sans-serif;
+    border-radius: 30px;
+    border: 1px solid rgba(6, 157, 159, 1);
+    background-color: #fff;
+    justify-content: center;
+    padding: 18px 49px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .filter-button {
+        white-space: initial;
+        padding: 0 20px;
+    }
+}
+
+.product-card {
+    max-width: 371px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1.01;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(91, 87, 94, 1);
+}
+
+.product-name {
+    width: 100%;
+    margin-top: 23px;
+    color: #000;
+    font: 600 28px/129% "Open Sans", sans-serif;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+}
+
+.product-price {
+    width: 100%;
+    margin-top: 13px;
+    color: #717171;
+    font: 18px/200% "Open Sans", sans-serif;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+}
+
+.add-to-cart-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 21px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #069d9f;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.button-text {
+    font-family: "Open Sans", sans-serif;
+}
+
+.cart-icon {
+    width: 16px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
 }

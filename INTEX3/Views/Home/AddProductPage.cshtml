@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add Product";
+}
+@model INTEX3.Models.Product
+
+<h1>Add Product</h1>
+
+<form method="post" action="@Url.Action("AddProduct", "Home")">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="Name" required>
+    </div>
+    <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="number" class="form-control" id="year" name="Year">
+    </div>
+    <div class="form-group">
+        <label for="numParts">Number of Parts:</label>
+        <input type="number" class="form-control" id="numParts" name="NumParts">
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" name="Price">
+    </div>
+    <div class="form-group">
+        <label for="imgLink">Image Link:</label>
+        <input type="text" class="form-control" id="imgLink" name="ImgLink">
+    </div>
+    <div class="form-group">
+        <label for="primaryColor">Primary Color:</label>
+        <input type="text" class="form-control" id="primaryColor" name="PrimaryColor">
+    </div>
+    <div class="form-group">
+        <label for="secondaryColor">Secondary Color:</label>
+        <input type="text" class="form-control" id="secondaryColor" name="SecondaryColor">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" class="form-control" id="category" name="Category">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
