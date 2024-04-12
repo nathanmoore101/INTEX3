@@ -6,6 +6,9 @@ using INTEX3.Models.ViewModels;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+
 
 namespace INTEX3.Controllers
 {
@@ -14,13 +17,74 @@ namespace INTEX3.Controllers
 
         private IProductRepository _productRepository;
         private IOrderRepository _orderRepository;
-        public HomeController(IProductRepository productRepository, IOrderRepository orderRepository)
+        private IUserRepository _userRepository;
+        public HomeController(IProductRepository productRepository, IOrderRepository orderRepository, IUserRepository userRepository)
 
         {
             _productRepository = productRepository;
             _orderRepository = orderRepository;
+            _userRepository = userRepository;
         }
 
+
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> AdminUsersPage()
+        {
+            var users = await _userRepository.GetAllUsersAsync();
+            return View(users);
+        }
+
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> EditUserPage(string id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> EditUser(AspNetUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                await _userRepository.UpdateUserAsync(user);
+                return RedirectToAction("AdminUsersPage");
+            }
+
+            return View(user);
+        }
+
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> DeleteUserConfirmation(string id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost, ActionName("DeleteUser")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> DeleteUserConfirmed(string id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            await _userRepository.DeleteUserAsync(user);
+            return RedirectToAction("AdminUsersPage");
+        }
 
 
 
