@@ -63,7 +63,7 @@
 
     <h1 style="padding-top:70px">You might also like...</h1>
     <div class="container" style="padding-top: 30px;">
-        <div class="row">
+        <div class="row" style="flex-wrap: nowrap; align-items:flex-end; justify-content:center; width:57vw;">
             @foreach (var rec in ViewBag.recommendedProducts as List<INTEX3.Models.Product>)
             {
                 <div class="col-4">
@@ -95,6 +95,9 @@
             }
         </div>
     </div>
+
+    <footer style="padding-top:1.5vw;">
+    </footer>
 
     <script>
         function changeQuantity(change) {
