@@ -12,17 +12,30 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-    <div class =" background">
+<div class ="background">
 
-<main class="transactions-container">
-        <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
-            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
-            <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
-            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
-            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
-        </nav>
-    </div>
-      </main>
+    <main class="transactions-container" style="padding-top:300px;">
+            <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
+                <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/064cf3c507bed0640c5f404adcd665c09653316b01f9d02fd1a6a33f8052bb0c?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Order Image" style="width: 100%; height: auto;">
+                    RECENT ORDERS
+                </a>
+                <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd9d7dfb1189e8c832aab38615bbc49e150b395a656e0be95890e3e3d018e8a0?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Products Image">
+                    PRODUCTS
+                </a>
+                <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c647a6bce0d4abd34c63ffed652e912ae81d0212190392d5d33541fbda0711c6?apiKey=3a091eaa77a84607bcdbf1652b75e071&.jpg" alt="Customers Image">
+                    CUSTOMERS
+                </a>
+                <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px; display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5884d4b38f82cffadf30586b83b032a8a00f572445da8f90ca94b1dc714f3c27?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Users Image">
+                    USERS
+                </a>
+
+            </nav>
+    </main>
+</div>
 
 </body>
 
