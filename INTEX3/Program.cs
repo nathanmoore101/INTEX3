@@ -8,10 +8,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using INTEX3.Data.Repositories;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = builder.Configuration;
+
+var conStrBuilder = new SqlConnectionStringBuilder(
+        builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING"));
+conStrBuilder.Password = builder.Configuration["DBPassword"];
+var connection = conStrBuilder.ConnectionString;
 
 // Connection string from the first program.cs
 var connectionString1 = builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTIONSTRING"];
