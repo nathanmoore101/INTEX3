@@ -8,6 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using INTEX3.Data;
 
 
 namespace INTEX3.Controllers
@@ -90,7 +91,7 @@ namespace INTEX3.Controllers
 
 
         //ADMIN ORDERS PAGE
-        //[Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult AdminOrdersPage(int pageNumber = 1, int pageSize = 100)
         {
             // Get total number of orders
@@ -113,6 +114,7 @@ namespace INTEX3.Controllers
         }
 
         // GET: Review Order
+        [Authorize(Roles = "admin")]
         public IActionResult ReviewOrderPage(int id)
         {
             var order = _orderRepository.GetOrderById(id);
@@ -125,6 +127,7 @@ namespace INTEX3.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult EditOrder(Order order)
         {
             if (ModelState.IsValid)
@@ -135,15 +138,15 @@ namespace INTEX3.Controllers
 
             return View("ReviewOrderPage", order);
         }
-    
 
 
 
 
 
-    //ADMIN PRODUCTS PAGE + CRUD
-    //[Authorize]
-    public IActionResult AdminProductsPage()
+
+        //ADMIN PRODUCTS PAGE + CRUD
+        [Authorize(Roles = "admin")]
+        public IActionResult AdminProductsPage()
         {
             // Get all products ordered by ProductId in ascending order
             var products = _productRepository.GetAllProducts().OrderBy(p => p.ProductId).ToList();
@@ -152,12 +155,14 @@ namespace INTEX3.Controllers
         }
 
         // GET: Create Product
+        [Authorize(Roles = "admin")]
         public IActionResult AddProductPage()
         {
             return View();
         }
         // POST: Create Product
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult AddProduct(Product product)
         {
             if (ModelState.IsValid)
@@ -173,6 +178,7 @@ namespace INTEX3.Controllers
 
 
         // GET: Edit Product
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> EditProductPage(int id)
         {
             var product = await _productRepository.GetProductById(id);
@@ -184,6 +190,7 @@ namespace INTEX3.Controllers
         }
         // POST: Edit Product
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> EditProduct(Product product)
         {
             if (ModelState.IsValid)
@@ -193,6 +200,8 @@ namespace INTEX3.Controllers
             }
             return View(product);
         }
+
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteProductConfirmation(int id)
         {
             // Retrieve the product details from the repository or database asynchronously
@@ -208,6 +217,7 @@ namespace INTEX3.Controllers
             return View(product);
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _productRepository.GetProductById(id);
@@ -220,6 +230,7 @@ namespace INTEX3.Controllers
             return NotFound();
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             // Retrieve the product from the repository
@@ -244,7 +255,7 @@ namespace INTEX3.Controllers
 
 
         //ADMIN USERS PAGE + CRUD
-        //[Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult AdminCustomersPage()
         {
             // Retrieve the list of products from your repository
@@ -257,21 +268,37 @@ namespace INTEX3.Controllers
 
 
 
+
         //HOME PAGE
+  
+
         public IActionResult HomePage()
         {
-            /*var allProducts = _legoRepository.GetAllProducts().ToList(); // Ensure this call is efficient for your dataset size
+            // Define specific product IDs to fetch
+            var specificProductIds = new List<int> { 27, 33, 34, 37, 24 };
 
-            var viewModel = new HomePageViewModel
+            // Fetch products with specific IDs
+            var products = _productRepository.Products
+                                             .Where(p => specificProductIds.Contains(p.ProductId))
+                                             .ToList();
+
+            // Create a view model instance
+            var model = new ProductListViewModel
             {
-                CarouselItems = allProducts.Take(3), // Take the first 3 products for the carousel
-                RecommendedProducts = allProducts.Take(5) // Take the first 5 products for the recommended section
+                Products = products,
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrntPage = 1,
+                    ItemsPerPage = products.Count,
+                    TotalItems = products.Count
+                },
+                // Not using filters for home page
+                CurrentProductCategory = null,
+                CurrentProductColor = null
             };
 
-            */
-            return View(); //ViewModel
+            return View(model);
         }
-
 
 
 

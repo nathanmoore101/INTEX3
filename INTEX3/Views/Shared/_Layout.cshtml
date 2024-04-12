@@ -82,7 +82,10 @@
     </div>
 </div>
 
-    <footer class="footer mt-auto bg-light">
+@await Component.InvokeAsync("CookieNotification")
+
+
+<footer class="footer mt-auto bg-light">
         <div class="container-fluid" style="padding: 0px 0px;">
             <div class="row bg-light align-items-start expand-height">
                 <div class="col-auto d-flex align-items-start">
@@ -113,11 +116,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    </div>
-
-    </div>
-
-    </div>
+   
 
 </body>
 

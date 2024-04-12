@@ -131,3 +131,15 @@
 }
 
 
+.card img {
+    width: 100%; /* Ensures the image takes up the entire width of the card */
+    height: auto; /* Maintains the aspect ratio */
+    object-fit: cover; /* Covers the area of the div without stretching the image */
+}
+
+.card {
+    margin-bottom: 20px; /* Adds space between the rows of products */
+}
+
+
+

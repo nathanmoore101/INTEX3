@@ -1,0 +1,75 @@
+﻿
+body {
+    background-image: url('https://i.pinimg.com/originals/4e/70/36/4e70367581c5b4b18d4f4972114f7f5d.jpg');
+}
+
+
+.btn-outline-info {
+    background-color: white;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 -15px; /* Adjusts for any container padding */
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+/* Base styles - applies to all sizes */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Specific styles for smaller screens */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.8rem; /* smaller font size on small devices */
+    }
+}
+
+.table {
+    table-layout: auto; /* allows table to adjust based on content width */
+    width: 100%;
+    margin: 0 auto; /* centers the table */
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+}
+
+    .table th, .table td {
+        white-space: normal;
+         padding: 8px;
+    }
+
+.container {
+    padding: 0 0px; /* Adjust container padding */
+}
+
+
+.btn-light {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none; /* Removes underline from links */
+    padding: 60px; /* Adds padding inside the button */
+    border: none; /* Optional: Removes border if present */
+    background-color: #f8f9fa; /* Light gray background, adjust as needed */
+}
+
+    .btn-light:nth-child(1) {
+        height: 224px;
+    }
+
+.btn-light:hover {
+    background-color:lightgray;
+}
+
+    .btn-light img {
+        width: 100%; /* Makes the image fill the width of the button */
+        height: auto; /* Maintains the aspect ratio of the image */
+    }
