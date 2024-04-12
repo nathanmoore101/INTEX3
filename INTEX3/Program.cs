@@ -31,6 +31,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add repositories
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 
 builder.Services.AddRazorPages();
 
@@ -123,8 +124,12 @@ app.UseSession();
 app.UseHsts(); // Enable HSTS
 
 app.MapControllerRoute(
+    name: "admin",
+    pattern: "{controller=Home}/{action=AdminUsersPage}/{id?}");
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=HomePage}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
