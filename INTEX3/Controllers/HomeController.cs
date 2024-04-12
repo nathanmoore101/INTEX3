@@ -8,6 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using INTEX3.Data;
 
 
 namespace INTEX3.Controllers
@@ -259,20 +260,35 @@ namespace INTEX3.Controllers
 
 
         //HOME PAGE
+  
+
         public IActionResult HomePage()
         {
-            /*var allProducts = _legoRepository.GetAllProducts().ToList(); // Ensure this call is efficient for your dataset size
+            // Define specific product IDs to fetch
+            var specificProductIds = new List<int> { 27, 33, 34, 37, 24 };
 
-            var viewModel = new HomePageViewModel
+            // Fetch products with specific IDs
+            var products = _productRepository.Products
+                                             .Where(p => specificProductIds.Contains(p.ProductId))
+                                             .ToList();
+
+            // Create a view model instance
+            var model = new ProductListViewModel
             {
-                CarouselItems = allProducts.Take(3), // Take the first 3 products for the carousel
-                RecommendedProducts = allProducts.Take(5) // Take the first 5 products for the recommended section
+                Products = products,
+                PaginationInfo = new PaginationInfo
+                {
+                    CurrntPage = 1,
+                    ItemsPerPage = products.Count,
+                    TotalItems = products.Count
+                },
+                // Not using filters for home page
+                CurrentProductCategory = null,
+                CurrentProductColor = null
             };
 
-            */
-            return View(); //ViewModel
+            return View(model);
         }
-
 
 
 
