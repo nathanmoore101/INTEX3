@@ -274,17 +274,33 @@ namespace INTEX3.Controllers
 
 
         //HOME PAGE
-  
+
 
         public IActionResult HomePage()
         {
-            // Define specific product IDs to fetch
-            var specificProductIds = new List<int> { 27, 33, 34, 37, 24 };
+            List<Product> products;
 
-            // Fetch products with specific IDs
-            var products = _productRepository.Products
-                                             .Where(p => specificProductIds.Contains(p.ProductId))
-                                             .ToList();
+            if (User.Identity.IsAuthenticated)
+            {
+                // Generate 5 random product IDs from 1 to 36
+                var random = new Random();
+                var randomProductIds = Enumerable.Range(1, 36).OrderBy(x => random.Next()).Take(5).ToList();
+
+                // Fetch products with these random IDs
+                products = _productRepository.Products
+                                              .Where(p => randomProductIds.Contains(p.ProductId))
+                                              .ToList();
+            }
+            else
+            {
+                // Define specific product IDs to fetch
+                var specificProductIds = new List<int> { 27, 33, 34, 37, 24 };
+
+                // Fetch products with specific IDs
+                products = _productRepository.Products
+                                              .Where(p => specificProductIds.Contains(p.ProductId))
+                                              .ToList();
+            }
 
             // Create a view model instance
             var model = new ProductListViewModel
@@ -303,7 +319,6 @@ namespace INTEX3.Controllers
 
             return View(model);
         }
-
 
 
 
