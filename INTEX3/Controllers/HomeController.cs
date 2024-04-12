@@ -312,9 +312,23 @@ namespace INTEX3.Controllers
         {
             var reqi = _recRepository.GetItemRecommendationForProductId(id);
 
-            var recommendedProducts = _recRepository.getProductsForItemRecommendation(reqi);
+            if (reqi != null)
+            {
+                 var recommendedProducts = _recRepository.getProductsForItemRecommendation(reqi);
 
-            ViewBag.recommendedProducts = recommendedProducts;
+                 ViewBag.recommendedProducts = recommendedProducts;
+
+            }
+
+            else
+            {
+                var recommendedProducts = _recRepository.getProductsIfItemRecIsNull();
+
+                ViewBag.recommendedProducts = recommendedProducts;
+
+            }
+
+           
 
 
 
