@@ -5,6 +5,7 @@
     ViewData["Title"] = "Admin Home";
 }
 
+
 <head>
     <link rel="stylesheet" href="~/css/admin.css">
 </head>
@@ -13,15 +14,15 @@
 
     <div class =" background">
 
-        <main class="container" style="padding-top: 300px;">
-                    <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
-                        <a class ="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">ORDERS</a>
-                        <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PRODUCTS</a>
-                        <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
-                    </nav>
-        </main>
-
+<main class="transactions-container">
+        <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
+            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
+            <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
+            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
+            <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
+        </nav>
     </div>
+      </main>
 
 </body>
 

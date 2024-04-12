@@ -1,6 +1,3 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     ViewData["Title"] = "Products";
 }
@@ -12,10 +9,11 @@
 
 @model List<Product> //UPDATE WITH CORRECT MODEL
 <nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">ORDERS</a>
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
     <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">USERS</a>
 
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
 </nav>
 
 <a href="@Url.Action("AddProductPage", "Home")" class="btn btn-primary">Add a Product</a>

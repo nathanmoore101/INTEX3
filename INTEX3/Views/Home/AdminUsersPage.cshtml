@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Users";
+}
+@model List<AspNetUser>
+<nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
+    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
+    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
+</nav>
+
+<main class="transactions-container">
+    <div style="background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/b2e7330d2c89baeade37994aaea2e36f0630d9f48289c3ea3678626c340b5fbf?apiKey=4aa74d2dfab244e68988085cdfab5351'); height: 500px; background-size: cover; background-position: center; color: white; text-align: center; display: flex; justify-content">
+        <table class="table table-bordered">
+            <thead class="fw-bold">
+                <tr>
+                    <td>ID</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Email Confirmed</td>
+                    <td>Phone Number</td>
+                    <td>Phone Number Confirmed</td>
+                    <td>Two Factor Enabled</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+
+
+            </thead>
+
+
+            @foreach (var x in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.UserName</td>
+                        <td>@x.Email</td>
+                        <td>@x.EmailConfirmed</td>
+                        <td>@x.PhoneNumber</td>
+                        <td>@x.PhoneNumberConfirmed</td>
+                        <td>@x.TwoFactorEnabled</td>
+                        <td><a class="btn btn-info" asp-controller="Home" asp-action="EditUserPage" asp-route-id="@x.Id">Edit</a></td>
+                        <td><a class="btn btn-danger" asp-controller="Home" asp-action="DeleteUserConfirmation" asp-route-id="@x.Id">Delete</a></td>
+                    </tr>
+
+                </tbody>
+            }
+        </table>
+    </div>
+</main>

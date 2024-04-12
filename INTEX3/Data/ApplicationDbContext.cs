@@ -9,5 +9,7 @@ namespace INTEX3.Data
             : base(options)
         {
         }
+
+        public object AspNetUsers { get; internal set; }
     }
 }

@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using INTEX3.Models;
 using INTEX3.Data;
 using INTEX3.Areas.Identity.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -11,9 +14,6 @@ var configuration = builder.Configuration;
 
 // Connection string from the first program.cs
 var connectionString1 = builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTIONSTRING"];
-
-// Connection string from the second program.cs
-var connectionString2 = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,11 +26,12 @@ builder.Services.AddDbContext<Intex2Context>(options =>
 
 // Register the DbContext from the second program.cs
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString2));
+    options.UseSqlServer(connectionString1)); //put connection to azure
 
 // Add repositories
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 
 builder.Services.AddRazorPages();
 
@@ -47,8 +48,14 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
     microsoftOptions.ClientSecret = configuration["Authentication:Microsoft:ClientSecret"];
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    // Enable roles
+    options.User.RequireUniqueEmail = true;
+})
+.AddRoles<IdentityRole>() // Add this line to enable Role services
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Password settings from the second program.cs
 builder.Services.Configure<IdentityOptions>(options =>
@@ -63,15 +70,39 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 var app = builder.Build();
 
+// Assign roles to users
+var userManager = services.BuildServiceProvider().GetRequiredService<UserManager<IdentityUser>>();
+var roleManager = services.BuildServiceProvider().GetRequiredService<RoleManager<IdentityRole>>();
+
+// Create Roles
+if (!await roleManager.RoleExistsAsync("admin"))
+{
+    var role = new IdentityRole("admin");
+    await roleManager.CreateAsync(role);
+}
+
+if (!await roleManager.RoleExistsAsync("customer"))
+{
+    var role = new IdentityRole("customer");
+    await roleManager.CreateAsync(role);
+}
+
+// Assign admin role to a user
+var adminUser = await userManager.FindByEmailAsync("admin@email.com"); // Replace with your admin email
+if (adminUser != null)
+{
+    await userManager.AddToRoleAsync(adminUser, "admin");
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    app.UseDeveloperExceptionPage();
 }
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseHsts(); // Enable HSTS
 }
 
 app.UseHttpsRedirection();
@@ -79,12 +110,26 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Use Authentication before Authorization
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
+    await next();
+});
+
+app.UseSession();
+
+app.UseHsts(); // Enable HSTS
+
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "{controller=Home}/{action=AdminUsersPage}/{id?}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=HomePage}/{id?}");
+
 app.MapRazorPages();
-app.UseSession();
 
 app.Run();

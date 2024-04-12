@@ -7,7 +7,7 @@ namespace INTEX3.Models
 {
     public class EFOrderRepository : IOrderRepository
     {
-        private Intex2Context _context; // UPDATE WITH CONTEXT FILE
+        private Intex2Context _context;
         public EFOrderRepository(Intex2Context temp) {
             _context = temp;
         }
@@ -19,18 +19,35 @@ namespace INTEX3.Models
         {
             return _context.Orders.OrderByDescending(o => o.Date).ToList();
         }
-//        public IQueryable<Order> Orders => _context.Orders
-//                            .Include(o => o.Lines)
-//                            .ThenInclude(l => l.Product);
 
-//        public void SaveOrder(Order order)
-//        {
-//            _context.AttachRange(order.Lines.Select(l => l.Product));
-//            if (order.TransactionId == 0)
-//            {
-//                _context.Orders.Add(order);
-//            }
-//            _context.SaveChanges();
+        public Order GetOrderById(int orderId)
+        {
+            return _context.Orders.FirstOrDefault(o => o.TransactionId == orderId);
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            var existingOrder = _context.Orders.FirstOrDefault(o => o.TransactionId == order.TransactionId);
+
+            if (existingOrder != null)
+            {
+                existingOrder.CustomerId = order.CustomerId;
+                existingOrder.Date = order.Date;
+                existingOrder.DayOfWeek = order.DayOfWeek;
+                existingOrder.Time = order.Time;
+                existingOrder.EntryMode = order.EntryMode;
+                existingOrder.Amount = order.Amount;
+                existingOrder.TypeOfTransaction = order.TypeOfTransaction;
+                existingOrder.CountryOfTransaction = order.CountryOfTransaction;
+                existingOrder.ShippingAddress = order.ShippingAddress;
+                existingOrder.Bank = order.Bank;
+                existingOrder.TypeOfCard = order.TypeOfCard;
+                existingOrder.Fraud = order.Fraud;
+
+                _context.SaveChanges();
+            }
+        }
+
     }
 }
 
