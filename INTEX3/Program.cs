@@ -118,9 +118,10 @@ app.UseAuthorization();
 
 app.Use(async (context, next) =>
 {
-    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
+    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://*.googleapis.com");
     await next();
 });
+
 
 //additional security: if a view is under development...
 if (!app.Environment.IsDevelopment())
