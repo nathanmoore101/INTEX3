@@ -9,6 +9,8 @@ using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using INTEX3.Data;
+using INTEX3.Data.Repositories;
+using NuGet.Protocol.Core.Types;
 
 
 namespace INTEX3.Controllers
@@ -19,12 +21,14 @@ namespace INTEX3.Controllers
         private IProductRepository _productRepository;
         private IOrderRepository _orderRepository;
         private IUserRepository _userRepository;
-        public HomeController(IProductRepository productRepository, IOrderRepository orderRepository, IUserRepository userRepository)
+        private IRecProductRepository _recRepository;
+        public HomeController(IProductRepository productRepository, IOrderRepository orderRepository, IUserRepository userRepository, IRecProductRepository recRepository)
 
         {
             _productRepository = productRepository;
             _orderRepository = orderRepository;
             _userRepository = userRepository;
+            _recRepository = recRepository;
         }
 
 
@@ -296,6 +300,15 @@ namespace INTEX3.Controllers
         //PRODUCT DETAIL PAGE
         public async Task<IActionResult> ProductDetailPage(int id)
         {
+            var reqi = _recRepository.GetItemRecommendationForProductId(id);
+
+            var recommendedProducts = _recRepository.getProductsForItemRecommendation(reqi);
+
+            ViewBag.recommendedProducts = recommendedProducts;
+
+
+
+
             var product = await _productRepository.GetProductById(id);
             if (product == null)
             {
@@ -304,6 +317,30 @@ namespace INTEX3.Controllers
 
             return View(product);
         }
+
+
+
+        /*
+        public async Task<IActionResult> ProductDetails(int id)
+        {
+            var product = await _recRepository.GetProductByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            var recommendations = await _recRepository.GetRecommendationsByProductIdAsync(product.ProductId);
+
+            var viewModel = new ProductDetailsViewModel
+            {
+                Product = product
+            };
+
+            return View(viewModel);
+        }
+        */
+
+
 
 
 

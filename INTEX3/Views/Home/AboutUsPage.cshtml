@@ -1,4 +1,8 @@
-﻿@*
+﻿@using INTEX3.Infrastructure
+@using INTEX3.Models
+@using INTEX3.Models.ViewModels
+@model INTEX3.Models.ViewModels.ProductDetailsViewModel
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -15,6 +19,9 @@
 </head>
 
 <body>
+
+
+
 
 
 
@@ -57,6 +64,23 @@
 
         </div>
     </div>
+
+
+
+
+    @if (Model != null && Model.Product != null)
+    {
+        <h2>@Model.Product.Name</h2>
+        <img src="@Model.Product.ImgLink" alt="Product Image">
+        <p>Price: @Model.Product.Price</p>
+        <p>Description: @Model.Product.Description</p>
+    }
+    else
+    {
+        <p>Product information is not available.</p>
+    }
+
+
 
 
 </body>

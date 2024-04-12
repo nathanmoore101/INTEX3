@@ -11,5 +11,7 @@ namespace INTEX3.Models.ViewModels
         public string? CurrentProductCategory { get; set; }
 
         public string? CurrentProductColor { get; set; }
+
+
     }
 }
