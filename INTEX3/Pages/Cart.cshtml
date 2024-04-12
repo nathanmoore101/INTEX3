@@ -57,7 +57,7 @@
                 <p>@item.Product.Name: @((item.Quantity * (item.Product.Price ?? 0)).ToString("c"))</p>
             }
             <h4>Total: @Model.Cart?.CalculateTotal().ToString("c")</h4>
-                <button class="complete-order-button">Complete Order</button>
+                <a class="complete-order-button">Complete Order</a>
         </div>
     </div>
 </div>
