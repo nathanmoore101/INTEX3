@@ -159,10 +159,10 @@
 
     <div class="image-row">
         <a asp-area="" asp-controller="Home" asp-action="ProductListPage"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/978891f0eda8046a13f8203967fa6eb4751f8a02092c830b315ca073296158ab?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="All Products"></a>
-        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Star Wars"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cad764540cd5e83986774fd9ce969bdd5f49ae74be690195725087c4badedcc5?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Star Wars"></a>
-        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Harry Potter"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1eee91e7d52cdb1d7375eb89765d7e14a052ca285141dab17d0938c74f11086d?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Harry Potter"></a>
-        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Flight"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6ab161af7bbb7f9a14f4314f3afa6f13e58449c7ed5d0c274ea302987de37dc?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Flight"></a>
-        <a asp-area="" asp-controller="Home" asp-action="ProductListPage" asp-route-category="Floral"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3be40c48c847d9ccea66db0b4c00e0646e46ce6823f3e6bcd9e885e862a696b?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Floral"></a>
+        <a href="@Url.Action("ProductListPage", "Home", new { productCategory = "Star Wars", pageNum = 1 })"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cad764540cd5e83986774fd9ce969bdd5f49ae74be690195725087c4badedcc5?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Star Wars"></a>
+        <a href="@Url.Action("ProductListPage", "Home", new { productCategory = "Harry Potter", pageNum = 1 })"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1eee91e7d52cdb1d7375eb89765d7e14a052ca285141dab17d0938c74f11086d?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Harry Potter"></a>
+        <a href="@Url.Action("ProductListPage", "Home", new { productCategory = "Flight - Vehicle", pageNum = 1 })"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6ab161af7bbb7f9a14f4314f3afa6f13e58449c7ed5d0c274ea302987de37dc?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Flight"></a>
+        <a href="@Url.Action("ProductListPage", "Home", new { productCategory = "Floral - Colorful", pageNum = 1 })"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3be40c48c847d9ccea66db0b4c00e0646e46ce6823f3e6bcd9e885e862a696b?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Floral"></a>
     </div>
 
 
