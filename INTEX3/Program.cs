@@ -113,11 +113,11 @@ app.UseRouting();
 app.UseAuthentication(); // Use Authentication before Authorization
 app.UseAuthorization();
 
-app.Use(async (context, next) =>
-{
-    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
-    await next();
-});
+//app.Use(async (context, next) =>
+//{
+//    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src 'self' https://*; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
+//    await next();
+//});
 
 //additional security: if a view is under development...
 if (!app.Environment.IsDevelopment())
