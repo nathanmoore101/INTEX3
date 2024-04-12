@@ -14,6 +14,27 @@
     padding: 0 !important; /* Override padding */
 }
 
+.carousel-caption {
+    display: flex;           /* Enables flexbox */
+    align-items: center;     /* Vertically centers the items in the container */
+    justify-content: space-between; /* Spreads out the items to use the available space */
+    text-align: left;        /* Ensures text alignment is to the left */
+}
+.carousel-caption .text-content {
+    flex: 1;                 /* Allows text content to fill available space */
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        flex-direction: column; /* Stacks items vertically on smaller screens */
+    }
+
+        .carousel-caption img {
+            width: 100%; /* Adjusts image width for smaller screens */
+            margin-top: 10px; /* Adds space between text and image */
+        }
+}
+
 
 .image-row {
     display: flex;
