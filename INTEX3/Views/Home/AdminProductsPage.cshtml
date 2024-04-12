@@ -8,18 +8,24 @@
 
 
 @model List<Product> //UPDATE WITH CORRECT MODEL
-<nav class="d-flex justify-content-center align-items-center container-fluid" style="padding: 10px; text-align: center">
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
-    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
 
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
-</nav>
 
-<a href="@Url.Action("AddProductPage", "Home")" class="btn btn-primary">Add a Product</a>
+
+<div style="margin-top:5%">
+    <nav class="d-flex justify-content-center container-fluid" style="padding: 10px; text-align: center">
+        <h3 style="color:white; font-weight:600;">Products</h3>
+        <a class="btn btn-outline-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">RECENT ORDERS</a>
+        <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PRODUCTS</a>
+        <a class="btn btn-outline-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminCustomersPage">CUSTOMERS</a>
+        <a class="btn btn-outline-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
+        <a href="@Url.Action("AddProductPage", "Home")" class="btn btn-warning" style="width: 200px; margin: 0 10px;">Add a Product</a>
+    </nav>
+</div>
+
+
 <main class="transactions-container">
     <div>
-        <table class="table table-bordered">
+        <table class="table table-bordered bg-white" style="border-radius: 8px; overflow: hidden; margin-top: 10px;">
             <thead class="fw-bold">
                 <tr>
                     <td>Product ID</td>
