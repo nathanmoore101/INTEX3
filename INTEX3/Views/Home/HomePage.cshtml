@@ -179,8 +179,8 @@
     }
 
     <h2 class="productlistheader" style="padding-bottom:15px">@headerText</h2>
-    <div class="container" style="padding-top: 30px;">
-        <div class="row">
+    <div class="container" style="padding-top: 30px; width: 100%;">
+        <div class="row" style="flex-wrap: nowrap; align-items:flex-end; width:58vw;">
             @foreach (var product in Model.Products)
             {
                 <partial name="ProductSummary" model="product" />
@@ -188,6 +188,9 @@
         </div>
     </div>
 
+    <footer style="padding-top:1vw;">
+
+    </footer>
 
 </body>
 </html>
