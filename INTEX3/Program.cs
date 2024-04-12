@@ -15,9 +15,6 @@ var configuration = builder.Configuration;
 // Connection string from the first program.cs
 var connectionString1 = builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTIONSTRING"];
 
-// Connection string from the second program.cs
-//v/*ar connectionString2 = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-//*/
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -104,7 +101,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseHsts(); // Enable HSTS
 }
 
 app.UseHttpsRedirection();
@@ -122,6 +119,8 @@ app.Use(async (context, next) =>
 });
 
 app.UseSession();
+
+app.UseHsts(); // Enable HSTS
 
 app.MapControllerRoute(
     name: "default",
