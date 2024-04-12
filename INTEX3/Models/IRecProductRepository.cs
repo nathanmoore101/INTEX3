@@ -12,5 +12,6 @@ namespace INTEX3.Data.Repositories
         //Task<ItemRecommendation> GetItemRecommendationByProductIdAsync(int productId);
         ItemRecommendation GetItemRecommendationForProductId(int productId);
         List<Product> getProductsForItemRecommendation(ItemRecommendation ir);
+        List<Product> getProductsIfItemRecIsNull();
     }
 }

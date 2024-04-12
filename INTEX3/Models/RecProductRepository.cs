@@ -67,6 +67,28 @@ public class RecProductRepository : IRecProductRepository
         return productIds;
     }
 
+
+    public List<Product> getProductsIfItemRecIsNull()
+    {
+        List<int> listOfIds = new List<int> { 23, 19, 21, 22, 20 };
+
+        var products = _context.Products.ToList();
+
+        List<Product> filteredProducts = new List<Product>();
+
+        foreach (var product in products)
+        {
+            if (listOfIds.Contains(product.ProductId))
+            {
+                filteredProducts.Add(product);
+            }
+        }
+
+        return filteredProducts;
+
+
+    }
+
     /*
     public async Task<Product> GetProductByIdAsync(int productId)
     {
