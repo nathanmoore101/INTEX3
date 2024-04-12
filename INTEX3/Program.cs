@@ -123,12 +123,13 @@ app.UseSession();
 
 app.UseHsts(); // Enable HSTS
 
-app.MapControllerRoute(
-    name: "admin",
-    pattern: "{controller=Home}/{action=AdminUsersPage}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=HomePage}/{id?}");
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "{controller=Home}/{action=AdminUsersPage}/{id?}");
 
 app.MapRazorPages();
 
