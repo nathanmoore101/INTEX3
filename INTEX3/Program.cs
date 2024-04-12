@@ -97,11 +97,19 @@ if (!await roleManager.RoleExistsAsync("customer"))
 }
 
 // Assign admin role to a user
-var adminUser = await userManager.FindByEmailAsync("admin@email.com"); // Replace with your admin email
+var adminUser = await userManager.FindByEmailAsync("admin@email.com");
 if (adminUser != null)
 {
     await userManager.AddToRoleAsync(adminUser, "admin");
 }
+
+// Assign customer role to a user
+var customerUser = await userManager.FindByEmailAsync("customer@email.com"); // Replace with the actual customer email
+if (customerUser != null)
+{
+    await userManager.AddToRoleAsync(customerUser, "admin");
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -4,10 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace INTEX3.Controllers
 {
-
     public class OrderController : Controller
     {
-        [Authorize(Roles = "customer")]
+        [Authorize(Roles = "customer,admin")]
         public ViewResult Checkout() => View(new Order());
     }
 }
