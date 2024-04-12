@@ -16,8 +16,8 @@ var configuration = builder.Configuration;
 var connectionString1 = builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTIONSTRING"];
 
 // Connection string from the second program.cs
-var connectionString2 = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-
+//v/*ar connectionString2 = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//*/
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -29,7 +29,7 @@ builder.Services.AddDbContext<Intex2Context>(options =>
 
 // Register the DbContext from the second program.cs
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString2));
+    options.UseSqlServer(connectionString1)); //put connection to azure
 
 // Add repositories
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
