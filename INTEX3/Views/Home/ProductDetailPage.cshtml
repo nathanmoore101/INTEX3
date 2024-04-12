@@ -1,15 +1,14 @@
 ﻿@using INTEX3.Infrastructure
 @using INTEX3.Models
 @using INTEX3.Models.ViewModels
+
+
 @{
     ViewData["Title"] = "Product Details";
 }
-@model Product // Update with your product model
-
 
 <head>
     <link rel="stylesheet" href="~/css/productdetail.css">
-
 </head>
 
 <body>
@@ -19,27 +18,23 @@
     </div>
 
     <div class="container">
-                <div class="image">
-                    <img src="@Model.ImgLink" alt="@Model.Name" style="max-height: 500px; max-width:800px">
-                </div>
-                <div class="details">
-                    <h4>@Model.Name</h4>
+        <div class="image">
+            <img src="@Model.ImgLink" alt="@Model.Name" style="max-height: 500px; max-width:800px">
+        </div>
+        <div class="details">
+            <h4>@Model.Name</h4>
             <h5>$@Model.Price USD</h5>
-
-
-                    <br><br/>
+            <br><br />
             <p><span style="font-weight: bold">Year: </span>@Model.Year</p>
             <p><span style="font-weight: bold">Number of Parts: </span>@Model.NumParts</p>
             <p><span style="font-weight: bold">Category: </span>@Model.Category</p>
             <p><span style="font-weight: bold">Primary Color: </span>@Model.PrimaryColor</p>
             <p><span style="font-weight: bold">Secondary Color: </span>@Model.SecondaryColor</p>
 
-              
-            <button type="button" onclick="toggleDescription()" style="background: #FFF; color: black; font-weight: bold; text-align: left; padding: 0px 0px 0px 0px">Show Description ▼</button>
+            <button type="button" onclick="toggleDescription()" style="background: #FFF; color: black; font-weight: bold; text-align: left; padding: 0px">Show Description ▼</button>
             <div id="description" style="overflow: hidden; height: 0;">
                 <p>@Model.Description</p>
             </div>
-
             <br><br />
 
             <!-- Form remains outside of the collapsible description -->
@@ -61,57 +56,73 @@
                         </button>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>
 
 
+    <h1>You might also like...</h1>
+    <div class="container" style="padding-top: 30px;">
+        <div class="row">
+            @foreach (var rec in ViewBag.recommendedProducts as List<INTEX3.Models.Product>)
+            {
+                <div class="col-4">
+                    <div class="card" style="border: none; display: flex; flex-direction: column;">
+                        <div class="card-body ms-2" style="overflow: hidden;">
+                            <!-- Wrap image in an anchor tag -->
+                            <a href="@Url.Action("ProductDetailPage", "Home", new { id = rec.ProductId })">
+                                <img src="@rec.ImgLink" class="mx-auto d-block" width="260" height="260" style="object-fit: cover;">
+                            </a>
+                            <br />
+                            <!-- Wrap product name in an anchor tag -->
+                            <a href="@Url.Action("ProductDetailPage", "Home", new { id = rec.ProductId })" style="text-decoration: none; color: inherit;">
+                                <h5 class="card-title ms-2 move-right-8px" style="height:40px;">@rec.Name</h5>
+                            </a>
+                            <p class="card-text ms-2 move-right-8px">$@rec.Price</p>
+                            <form id="@rec.ProductId" method="post" asp-page="/Cart">
+                                <input type="hidden" name="productId" value="@rec.ProductId" />
+                                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                <div class="justify-content-center align-items-center">
+                                    <button type="submit" class="d-flex btn btn-primary btn-xl justify-content-center align-items-center" style="padding: 15px 90px; background-color: #069d9f; border: 1px solid rgba(255, 255, 255, 1); border-radius: 4px; font-size: 16px; color: #fff; font-weight: 400; text-align: center;">
+                                        Add to Cart
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/88bddbe6f98de4466b70faeec0c6a9a6d1633a645f3b65fd82b9051b39827f22?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="View details icon" class="ms-2" style="width: 12px; height: 12px; object-fit: auto; object-position: center;" />
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 
     <script>
         function changeQuantity(change) {
             var quantityInput = document.getElementById('quantity');
-            var hiddenQuantityInput = document.getElementById('productQuantity'); // Reference to the hidden input
+            var hiddenQuantityInput = document.getElementById('productQuantity');
             var currentQuantity = parseInt(quantityInput.value);
             var newQuantity = currentQuantity + change;
 
-            if (newQuantity < 1) newQuantity = 1; // Prevents negative quantities
+            if (newQuantity < 1) newQuantity = 1;
             quantityInput.value = newQuantity;
-            hiddenQuantityInput.value = newQuantity; // Update the hidden field to match
+            hiddenQuantityInput.value = newQuantity;
         }
-
 
         function toggleDescription() {
             var description = document.getElementById('description');
             if (description.style.height === '0px' || description.style.height === '') {
-                // Expanding
-                const scrollHeight = description.scrollHeight + "px";
-                description.style.height = scrollHeight;
+                description.style.height = description.scrollHeight + "px";
                 document.querySelector('.details > button').textContent = "Hide Description ▲";
-
-                // Ensure the height is set back to 'auto' after the transition ends
-                // to accommodate dynamic content changes (e.g., images loading)
                 description.addEventListener('transitionend', function () {
                     description.style.height = 'auto';
-                }, { once: true }); // The listener is removed after execution
+                }, { once: true });
             } else {
-                // Collapsing
-                // Reset height to current, then to 0 to trigger transition
                 description.style.height = description.scrollHeight + "px";
                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        description.style.height = "0";
-                        document.querySelector('.details > button').textContent = "Show Description ▼";
-                    });
+                    description.style.height = "0";
+                    document.querySelector('.details > button').textContent = "Show Description ▼";
                 });
             }
         }
-
-
-
-
     </script>
-
-
-
 </body>

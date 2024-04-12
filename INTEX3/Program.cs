@@ -7,6 +7,7 @@ using INTEX3.Areas.Identity.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using INTEX3.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -32,6 +33,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
 builder.Services.AddScoped<IUserRepository, EFUserRepository>();
+builder.Services.AddScoped<IRecProductRepository, RecProductRepository>();
+
 
 builder.Services.AddRazorPages();
 
