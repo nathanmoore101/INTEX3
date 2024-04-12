@@ -170,6 +170,7 @@ namespace INTEX3.Controllers
 
 
 
+
         //HOME PAGE
         public IActionResult HomePage()
         {

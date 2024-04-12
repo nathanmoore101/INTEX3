@@ -1,0 +1,47 @@
+﻿
+body {
+    background-image: url('https://i.pinimg.com/originals/4e/70/36/4e70367581c5b4b18d4f4972114f7f5d.jpg');
+}
+
+
+
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 -15px; /* Adjusts for any container padding */
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+/* Base styles - applies to all sizes */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Specific styles for smaller screens */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.8rem; /* smaller font size on small devices */
+    }
+}
+
+.table {
+    table-layout: auto; /* allows table to adjust based on content width */
+    width: 100%;
+    margin: 0 auto; /* centers the table */
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+}
+
+    .table th, .table td {
+        white-space: normal;
+         padding: 8px;
+    }
+
+.container {
+    padding: 0 0px; /* Adjust container padding */
+}

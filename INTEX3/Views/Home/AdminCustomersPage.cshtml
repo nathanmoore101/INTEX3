@@ -2,54 +2,63 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "About Us";
+    ViewData["Title"] = "Admin Users";
 }
 
+
+<head>
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
 <h1>Admin Database</h1>
-<nav class="d-flex justify-content-center container-fluid" style="padding: 10px; text-align: center">
-    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">REVIEW ORDERS</a>
-    <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PROUCTS</a>
-    <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
-</nav>
 
 
-@model List<Customer> //UPDATE WITH CORRECT MODEL
-<main>
-    <div style="background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/b2e7330d2c89baeade37994aaea2e36f0630d9f48289c3ea3678626c340b5fbf?apiKey=4aa74d2dfab244e68988085cdfab5351'); height: 2000px; background-size: cover; background-position: center; color: white; text-align: center; display: flex; justify-content;">
-        
-        <div class="container">
-            <table class="table table-bordered bg-white" style="border-radius: 8px;overflow: hidden; margin-top: 10px; ">
-                    <thead class="fw-bold">
-                        <tr>
-                            <td>Customer ID</td>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Birth Date</td>
-                            <td>Country of Residence</td>
-                            <td>Gender</td>
-                            <td>Age</td>
-                        </tr>
+<body>
 
-                    </thead>
 
-                    @foreach (var x in Model)
-                    {
-                        <tbody>
+    <div class="d-flex justify-content-center container-fluid" style="padding: 10px; text-align: center">
+        <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminOrdersPage">REVIEW ORDERS</a>
+        <a class="btn btn-light" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminProductsPage">PRODUCTS</a>
+        <a class="btn btn-info" role="button" style="width: 200px; margin: 0 10px;" asp-area="" asp-controller="Home" asp-action="AdminUsersPage">USERS</a>
+    </div>
+
+
+    @model List<Customer> //UPDATE WITH CORRECT MODEL
+    <main>
+        <main>
+
+            <div class="background">
+                <div class="container">
+                    <table class="table table-bordered bg-white">
+                        <thead class="fw-bold">
                             <tr>
-                                <td>@x.CustomerId</td>
-                                <td>@x.FirstName</td>
-                                <td>@x.LastName</td>
-                                <td>@x.BirthDate</td>
-                                <td>@x.CountryOfResidence</td>
-                                <td>@x.Gender</td>
-                                <td>@x.Age</td>
+                                <td>Customer ID</td>
+                                <td>First Name</td>
+                                <td>Last Name</td>
+                                <td>Birth Date</td>
+                                <td>Country of Residence</td>
+                                <td>Gender</td>
+                                <td>Age</td>
                             </tr>
-
-
-                        </tbody>
-                    }
-                </table>
+                        </thead>
+                        @foreach (var x in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@x.CustomerId</td>
+                                    <td>@x.FirstName</td>
+                                    <td>@x.LastName</td>
+                                    <td>@x.BirthDate</td>
+                                    <td>@x.CountryOfResidence</td>
+                                    <td>@x.Gender</td>
+                                    <td>@x.Age</td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
             </div>
-         </div>
-</main>
+        </main>
 
+    </main>
+
+</body>
