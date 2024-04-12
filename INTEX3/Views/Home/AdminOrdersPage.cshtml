@@ -4,11 +4,12 @@
 @{
     ViewData["Title"] = "Recent Orders";
 }
-<h1>Recent Orders</h1>
 
-@model IEnumerable<Order> 
 
-<!-- Your table rendering code here -->
+
+<head>
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
 
 
 @* @model List<Order> //UPDATE WITH CORRECT MODEL *@
@@ -20,8 +21,12 @@
 </nav>
 
 
+<h1>Recent Orders</h1>
+
+@model IEnumerable<Order> 
+
+
 <main class="transactions-container">
-    <div style="background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/b2e7330d2c89baeade37994aaea2e36f0630d9f48289c3ea3678626c340b5fbf?apiKey=4aa74d2dfab244e68988085cdfab5351'); height: 500px; background-size: cover; background-position: center; color: white; text-align: center; display: flex; justify-content">
         <table class="table table-bordered">
             <thead class="fw-bold">
                 <tr>
@@ -40,9 +45,6 @@
                     <td>Fraud</td>
                     <td>Review</td>
 
-                </tr>
-
-            </thead>
 
             @foreach (var x in Model)
             {
