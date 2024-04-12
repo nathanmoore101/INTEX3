@@ -119,6 +119,14 @@ app.Use(async (context, next) =>
     await next();
 });
 
+//additional security: if a view is under development...
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+}
+
+app.UseCookiePolicy();
+
 app.UseSession();
 
 app.UseHsts(); // Enable HSTS
