@@ -87,7 +87,7 @@ if (!await roleManager.RoleExistsAsync("customer"))
 }
 
 // Assign admin role to a user
-var adminUser = await userManager.FindByEmailAsync("nathanmoore101@gmail.com"); // Replace with your admin email
+var adminUser = await userManager.FindByEmailAsync("admin@email.com"); // Replace with your admin email
 if (adminUser != null)
 {
     await userManager.AddToRoleAsync(adminUser, "admin");
