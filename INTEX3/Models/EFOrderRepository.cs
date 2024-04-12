@@ -47,6 +47,13 @@ namespace INTEX3.Models
                 _context.SaveChanges();
             }
         }
+        public Order CreateOrder(Order order)
+        {
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+            return order;
+        }
+
 
     }
 }
