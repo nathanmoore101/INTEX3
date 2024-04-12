@@ -15,14 +15,19 @@
 }
 
 .carousel-caption {
-    display: flex;           /* Enables flexbox */
-    align-items: center;     /* Vertically centers the items in the container */
-    justify-content: space-between; /* Spreads out the items to use the available space */
-    text-align: left;        /* Ensures text alignment is to the left */
+    padding-top: 5em;
+    height: 100%; /* Ensure the caption takes the full height of its container */
+    display: flex;
+    align-items: center; /* Aligns children (text) vertically in the center */
+    justify-content: center; /* Centers horizontally */
 }
-.carousel-caption .text-content {
-    flex: 1;                 /* Allows text content to fill available space */
+
 }
+.text-content {
+    max-width: 1200px; /* Set a maximum width that makes sense for your design */
+    margin: 0 auto; /* This centers the container within its parent */
+}
+
 
 @media (max-width: 768px) {
     .carousel-caption {
@@ -31,7 +36,7 @@
 
         .carousel-caption img {
             width: 100%; /* Adjusts image width for smaller screens */
-            margin-top: 10px; /* Adds space between text and image */
+            margin-top: 25px; /* Adds space between text and image */
         }
 }
 

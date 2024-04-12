@@ -1,13 +1,18 @@
-﻿@{
+﻿@using INTEX3.Infrastructure
+@using INTEX3.Models
+@using INTEX3.Models.ViewModels
+@model ProductListViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Carousel Example</title>
+    <title>Best Sellers</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Qt9Hug5N8Zq+pAiD1//I5ZPuXGR7t7dzWdSf2XkC3V7dMlvlJWvy8UcYG1TK3jWk" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/home.css">
 </head>
@@ -27,20 +32,43 @@
                 <div class="carousel-item active">
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae204e5755cea4ba25ef347a50d2363d86f7e2c46f5e5769d63ec785f2fa8f1a?apiKey=3a091eaa77a84607bcdbf1652b75e071&" class="d-block w-100" alt="First Slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <div class="text-content">
-                            <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
-                            <h3>Create something new with this loved building block</h3>
-                            <p>with one of Aurora's Best Sellers: Block 2x2</p>
+                        <div class="row">
+                            <div class="col-6" style="position:sticky;">
+                                <div class="text-content" style="text-align:left">
+                                    <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
+                                    <br />
+                                    <h1 style="font-size:48px; font-weight: bold;">Create something new with this loved building block</h1>
+                                    <p>with one of Aurora's Best Sellers: Block 2x2</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <img src="https://i.ebayimg.com/00/s/NjAwWDgwMA==/z/~J4AAOSwN-hkkAA3/$_1.PNG" style=" width: 80%; height: auto;" />
+                            </div>
                         </div>
-                        <img src="https://i.ebayimg.com/00/s/NjAwWDgwMA==/z/~J4AAOSwN-hkkAA3/$_1.PNG" style="margin-left: 70%; width: 400px; height: auto;" />
+
                     </div>
+
                 </div>
                 <div class="carousel-item">
                     <!-- Image URL for the second item -->
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae204e5755cea4ba25ef347a50d2363d86f7e2c46f5e5769d63ec785f2fa8f1a?apiKey=3a091eaa77a84607bcdbf1652b75e071&0" class="d-block w-100" alt="Second Slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <div class="row">
+                            <div class="col-6" style="position:sticky;">
+                                <div class="text-content" style="text-align:left">
+                                    <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
+                                    <br />
+                                    <h1 style="font-size:48px; font-weight: bold;">Power your collection with Lego’s Battery Box</h1>
+                                    <p>add this best seller to your cart!</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc738655233326ba9b32c331b50a4de3498ec3a9a15144ee139e11e91411de3c?apiKey=3a091eaa77a84607bcdbf1652b75e071&" style=" width: 80%; height: auto;" />
+                            </div>
+                        </div>
+
                     </div>
                 
                 </div>
@@ -48,24 +76,63 @@
                     <!-- Image URL for the third item -->
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae204e5755cea4ba25ef347a50d2363d86f7e2c46f5e5769d63ec785f2fa8f1a?apiKey=3a091eaa77a84607bcdbf1652b75e071&" class="d-block w-100" alt="Third Slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <div class="row">
+                            <div class="col-6" style="position:sticky;">
+                                <div class="text-content" style="text-align:left">
+                                    <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
+                                    <br />
+                                    <h1 style="font-size:48px; font-weight: bold;">Drive towards your wildest dreams</h1>
+                                    <p>with Aurora's Best Seller: Wheel Sets, Black</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9bf3655fbce197dc3764fa5964b37527bcd1873cbec02be59e98ce58d9b957c?apiKey=3a091eaa77a84607bcdbf1652b75e071&" style=" width: 80%; height: auto;" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!-- Image URL for the third item -->
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae204e5755cea4ba25ef347a50d2363d86f7e2c46f5e5769d63ec785f2fa8f1a?apiKey=3a091eaa77a84607bcdbf1652b75e071&" class="d-block w-100" alt="Third Slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Forth slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <div class="row">
+                            <div class="col-6" style="position:sticky;">
+                                <div class="text-content" style="text-align:left">
+                                    <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
+                                    <br />
+                                    <h1 style="font-size:48px; font-weight: bold;">The foundation for creative play</h1>
+                                    <p>build the best with this best seller: Baseplate</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d112580b631dfc156e52910fb8eb2bc27f1a723c38bc8a96a1c68a40eedf3f2?apiKey=3a091eaa77a84607bcdbf1652b75e071&" style=" width: 80%; height: auto;" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="carousel-item">
                     <!-- Image URL for the third item -->
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae204e5755cea4ba25ef347a50d2363d86f7e2c46f5e5769d63ec785f2fa8f1a?apiKey=3a091eaa77a84607bcdbf1652b75e071&" class="d-block w-100" alt="Third Slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Fifth slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <div class="row">
+                            <div class="col-6" style="position:sticky;">
+                                <div class="text-content" style="text-align:left">
+                                    <h5 style="font-weight: bold">AURORA BEST SELLER</h5>
+                                    <br />
+                                    <h1 style="font-size:48px; font-weight: bold;">Train your imagination with some new wheels</h1>
+                                    <p>with 4.5V Small Motor with Wheels (Small Version)</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1a5537077356c6eb7480093b6b582c3efd0824ca9381096af47394aa106abf0?apiKey=3a091eaa77a84607bcdbf1652b75e071&" style=" width: 80%; height: auto;" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -80,7 +147,7 @@
         </div>
     </div>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjyIOi+Y5NLY6tvXNx5I4F6zH9U9g0z3N2u5XP0m3IIqejAsHHfs3T" crossorigin="anonymous"></script>
+@*     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjyIOi+Y5NLY6tvXNx5I4F6zH9U9g0z3N2u5XP0m3IIqejAsHHfs3T" crossorigin="anonymous"></script>
     <script>
         var myCarousel = document.querySelector('#carouselExampleIndicators');
         var carousel = new bootstrap.Carousel(myCarousel, {
@@ -88,7 +155,7 @@
             wrap: true
         });
     </script>
-
+ *@
 
     <div class="image-row">
         <a asp-area="" asp-controller="Home" asp-action="ProductListPage"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/978891f0eda8046a13f8203967fa6eb4751f8a02092c830b315ca073296158ab?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="All Products"></a>
@@ -101,40 +168,6 @@
 
     <h2>Aurora's Recommended for You</h2>
 
-    <section class="product-grid">
-        <article class="product-card">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/17999ec7f1145eff3b970126d9ef85a3a60cf6bcc09fb0b2ec7f7567eb5cb5a6?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Exotic Peacock" class="product-image" />
-            <h3 class="product-title">Exotic Peacock</h3>
-            <p>price</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </article>
 
-        <article class="product-card">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5e17ee0e11fce212ebc05c6ef17d9475d951816964efceb027f7df8e572aba?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Spider Tank" class="product-image" />
-            <h3 class="product-title">Spider Tank</h3>
-            <p>price</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </article>
-
-        <article class="product-card">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2833544a617ee4fec7274b2ff1e4968256a454f2f64582efa9bdf491c629c297?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Retro Roller Skate" class="product-image" />
-            <h3 class="product-title">Retro Roller Skate</h3>
-            <p>price</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </article>
-        <article class="product-card">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0f9d91c2fb620bc2163f2e0cb8e15a7ff2fbc87ecf1b4d45a6207c501a4a8a69?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="The Madrigal House" class="product-image" />
-            <h3 class="product-title">The Madrigal House</h3>
-            <p>price</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </article>
-
-        <article class="product-card">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e90a65395ba219afad7a887fb07210676b83a861e668a44024d0710022a6d0d2?apiKey=3a091eaa77a84607bcdbf1652b75e071&" alt="Space Astronaut" class="product-image" />
-            <h3 class="product-title">Space Astronaut</h3>
-            <p>price</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-        </article>
-    </section>
 </body>
 </html>
