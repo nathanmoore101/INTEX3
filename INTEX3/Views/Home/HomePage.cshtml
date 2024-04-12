@@ -166,9 +166,12 @@
     </div>
 
 
-   @*  unauthenticated user recommendations *@
 
-    <h2 class="productlistheader">Aurora's Best Rated Items</h2>
+    @{
+        var headerText = User.Identity.IsAuthenticated ? $"{User.Identity.Name}! here are your recommended items:" : "Aurora's Best Rated Items:";
+    }
+
+    <h2 class="productlistheader" style="padding-bottom:15px">@headerText</h2>
     <div class="container" style="padding-top: 30px;">
         <div class="row">
             @foreach (var product in Model.Products)
